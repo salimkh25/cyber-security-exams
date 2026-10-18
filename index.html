@@ -297,12 +297,16 @@ function pool(){
 
 /* ---------- tabs ---------- */
 document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => go(b.dataset.tab));
-function go(tab){
+function go(tab, fromHash){
   if (S.exam && !S.exam.done && tab !== 'exam'){ confirmModal('לצאת מהמבחן? התשובות לא יישמרו.', 'צא מהמבחן', () => { S.exam = null; go(tab); }); return; }
   S.tab = tab;
   document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === tab || (tab==='exam'||tab==='result'||tab==='print') && b.dataset.tab==='setup'));
+  if (!fromHash && ['setup','bank','stats'].includes(tab)) { try { history.replaceState(null,'','#'+tab); } catch(e){} }
   render(); window.scrollTo(0,0);
 }
+/* deep-link: index.html#bank / #stats / #setup (used by the videos page nav) */
+function tabFromHash(){ const t=(location.hash||'').replace('#',''); if(['setup','bank','stats'].includes(t)) go(t,true); }
+addEventListener('hashchange', tabFromHash);
 function render(){
   const app = $('#app');
   ({setup:renderSetup, exam:renderExam, result:renderResult, print:renderPrint, bank:renderBank, stats:renderStats})[S.tab](app);
@@ -731,6 +735,7 @@ function confirmModal(msg, okText, onOk){
   m.querySelector('[data-ok]').focus();
 }
 
+tabFromHash();
 render();
 </script>
 

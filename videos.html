@@ -1,55 +1,76 @@
 <!doctype html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ספריית סרטונים · מבוא לאבטחת סייבר</title>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ספריית סרטונים · מבחני סייבר</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Suez+One&display=swap">
 <style>
+/* Same design system + topbar as the main exam site (index.html). */
 :root{
-  --bg:#f6f7f9; --card:#fff; --ink:#16202e; --muted:#5a6475; --line:#dde2ea;
-  --accent:#1d4f91; --accent-soft:#e7eef9; --key:#1f6b4a; --key-soft:#e6f2ec; --star:#9a5200; --star-soft:#fcf0dc;
-  --shadow:0 1px 2px rgba(20,30,50,.06),0 2px 8px rgba(20,30,50,.05);
+  --bg:#f3f5f9; --surface:#ffffff; --surface-2:#f8f9fc; --ink:#141a26; --muted:#5b6474; --faint:#8a93a3;
+  --line:#dde2ea; --accent:#2b4fd8; --accent-ink:#ffffff; --accent-soft:#e7ecfd;
+  --good:#1e8a4c; --good-soft:#e3f4ea; --warn:#a96a12; --warn-soft:#fcf0dc;
+  --f-body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",Arial,sans-serif;
+  --f-display:"Suez One","IBM Plex Sans Hebrew",Georgia,serif;
+  --f-mono:"IBM Plex Mono",Menlo,Consolas,monospace;
+  --r:10px; --shadow:0 1px 2px rgba(20,30,50,.05),0 2px 8px rgba(20,30,50,.045);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#10151d; --card:#18202b; --ink:#e6ebf2; --muted:#9aa5b5; --line:#2a3443;
-  --accent:#8db4ef; --accent-soft:#1d2b40; --key:#7fd0a8; --key-soft:#183026; --star:#f0b35e; --star-soft:#3a2a12;
-  --shadow:none;}}
+  --bg:#0e1218; --surface:#161b24; --surface-2:#1b212c; --ink:#e7ebf2; --muted:#9ba5b6; --faint:#6f7a8c;
+  --line:#2a313d; --accent:#7f9bff; --accent-ink:#0e1218; --accent-soft:#1e274a;
+  --good:#47c17e; --good-soft:#15301f; --warn:#e2a548; --warn-soft:#3a2a12; --shadow:none; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#10151d; --card:#18202b; --ink:#e6ebf2; --muted:#9aa5b5; --line:#2a3443;
-  --accent:#8db4ef; --accent-soft:#1d2b40; --key:#7fd0a8; --key-soft:#183026; --star:#f0b35e; --star-soft:#3a2a12;
-  --shadow:none;}
+  --bg:#0e1218; --surface:#161b24; --surface-2:#1b212c; --ink:#e7ebf2; --muted:#9ba5b6; --faint:#6f7a8c;
+  --line:#2a313d; --accent:#7f9bff; --accent-ink:#0e1218; --accent-soft:#1e274a;
+  --good:#47c17e; --good-soft:#15301f; --warn:#e2a548; --warn-soft:#3a2a12; --shadow:none; color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI","Noto Sans Hebrew",Arial,sans-serif}
-header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-.top{display:flex;align-items:center;gap:12px;padding:14px 0 10px;flex-wrap:wrap}
-h1{font-size:20px;margin:0;flex:1;min-width:220px}
-h1 small{display:block;font-size:13px;font-weight:400;color:var(--muted)}
-.progress{font-size:13px;color:var(--muted);white-space:nowrap}
-.progress b{color:var(--key)}
-.bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:4px;width:140px}
-.bar i{display:block;height:100%;background:var(--key);width:0;transition:width .2s}
-button.theme{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
-.controls{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:12px;align-items:center}
-input[type=search]{flex:1;min-width:200px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
-.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.seg button{border:0;background:transparent;color:var(--muted);padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
-.seg button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
-label.chk{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;cursor:pointer}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
-.chips button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;white-space:nowrap}
-.chips button.on{background:var(--accent);border-color:var(--accent);color:var(--card)}
-main{padding:18px 0 40px}
+body{background:var(--bg);color:var(--ink);font:15px/1.65 var(--f-body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---- topbar (identical to index.html) ---- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-size:20px;letter-spacing:.2px;white-space:nowrap}
+.brand small{font-family:var(--f-body);font-size:12px;color:var(--muted);margin-inline-start:8px;font-weight:500}
+nav.tabs{display:flex;gap:4px;margin-inline-start:auto;align-items:center;flex-wrap:wrap}
+nav.tabs a.tab-link{border:0;background:none;padding:7px 12px;border-radius:8px;color:var(--muted);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;font-size:14px;transition:background .15s,color .15s}
+nav.tabs a.tab-link:hover{background:var(--surface-2);color:var(--ink)}
+nav.tabs a.tab-link[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+
+/* ---- page intro + controls ---- */
+main{padding-block:18px 48px}
+.intro{margin:4px 0 14px}
+.intro h1{font-family:var(--f-display);font-size:22px;margin:0}
+.intro p{color:var(--muted);margin:4px 0 0;font-size:14px}
+.progress-line{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.progress-line b{color:var(--good)}
+.pbar{height:5px;flex:1;min-width:120px;max-width:280px;background:var(--line);border-radius:3px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--good);transition:width .2s}
+.controls{position:sticky;top:calc(env(safe-area-inset-top,0px) + 53px);z-index:4;background:var(--bg);padding-block:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:16px}
+input[type=search]{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;color:var(--muted);padding:7px 12px;font-size:13px;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--accent-soft);color:var(--accent)}
+label.chk{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600}
+label.chk input{accent-color:var(--accent);width:16px;height:16px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:14px;scrollbar-width:thin}
+.chips button{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.chips button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* ---- sections + cards ---- */
 section{margin-bottom:28px}
-h2{font-size:17px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
-h2 .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--card);font-size:13px}
-h2 .c{font-size:12px;font-weight:400;color:var(--muted)}
+h2.sec{font-size:17px;margin:0 0 12px;display:flex;align-items:center;gap:9px}
+h2.sec .n{flex:none;display:inline-grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:700}
+h2.sec .c{font-size:12px;font-weight:500;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
 .card.done{opacity:.55}
 .thumb{position:relative;display:block;aspect-ratio:16/9;background:var(--accent-soft)}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb .len{position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,.78);color:#fff;font-size:12px;padding:1px 6px;border-radius:4px;direction:ltr}
+.thumb .len{position:absolute;bottom:6px;left:6px;background:rgba(0,0,0,.78);color:#fff;font-size:12px;padding:1px 6px;border-radius:4px;direction:ltr;font-family:var(--f-mono)}
 .thumb .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .15s;background:rgba(0,0,0,.25)}
 .thumb:hover .play,.thumb:focus .play{opacity:1}
 .play span{width:52px;height:36px;border-radius:9px;background:#e62117;display:grid;place-items:center}
@@ -59,38 +80,43 @@ h2 .c{font-size:12px;font-weight:400;color:var(--muted)}
 .title:hover{color:var(--accent)}
 .meta{font-size:12px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .tag{font-size:11px;padding:1px 7px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600}
-.tag.he{background:var(--key-soft);color:var(--key)}
-.tag.st{background:var(--star-soft);color:var(--star)}
+.tag.he{background:var(--good-soft);color:var(--good)}
+.tag.st{background:var(--warn-soft);color:var(--warn)}
 .note{font-size:13px;color:var(--ink);margin:0;flex:1}
 .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
 .foot a{font-size:13px;color:var(--accent);text-decoration:none;font-weight:600}
 .empty{color:var(--muted);text-align:center;padding:40px 0}
 footer{color:var(--muted);font-size:12px;text-align:center;padding:0 16px 30px}
-@media (max-width:520px){header{position:static}h1{font-size:17px}.bar{width:100px}.grid{grid-template-columns:1fr}}
+@media (max-width:560px){.top,.controls{position:static}.grid{grid-template-columns:1fr}nav.tabs{width:100%;margin-inline-start:0}}
 </style>
-</head>
-<body>
-<header>
- <div class="wrap">
-  <div class="top">
-   <h1>ספריית סרטונים · מבוא לאבטחת סייבר<small>סרטוני הסבר לפי פרקי החוברת. כוכב = הסרטון שכדאי להתחיל ממנו בכל פרק.</small></h1>
-   <a href="index.html" class="theme" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px">📝 מתרגל מבחנים</a>
-   <a href="summary.pdf" target="_blank" rel="noopener" class="theme" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px">📄 חוברת סיכום</a>
-   <div class="progress"><span id="prog"></span><div class="bar"><i id="pbar"></i></div></div>
-   <button class="theme" id="theme" title="החלפת מצב בהיר/כהה">בהיר / כהה</button>
+</head><body>
+<header class="top"><div class="wrap">
+  <div class="brand">מבחני סייבר<small>מבוא לאבטחת סייבר · 689156</small></div>
+  <nav class="tabs" role="navigation">
+    <a href="index.html#setup" class="tab-link">מבחן חדש</a>
+    <a href="index.html#bank" class="tab-link">מאגר השאלות</a>
+    <a href="index.html#stats" class="tab-link">סטטיסטיקה</a>
+    <a href="ספריית סרטונים.html" class="tab-link" aria-current="page" title="ספריית סרטונים להרצאות">📺 סרטונים</a>
+    <a href="summary.pdf" class="tab-link" target="_blank" rel="noopener" title="חוברת סיכום קורס">📄 סיכום קורס</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <div class="intro">
+    <h1>ספריית סרטונים</h1>
+    <p>סרטוני הסבר לכל נושא, לפי פרקי חוברת הסיכום. הכוכב מסמן את הסרטון שכדאי להתחיל ממנו בכל פרק.</p>
+    <div class="progress-line"><span id="prog"></span><div class="pbar"><i id="pbar"></i></div></div>
   </div>
   <div class="controls">
-   <input type="search" id="q" placeholder="חיפוש: RSA, salt, CSRF, מרקל…">
-   <div class="seg" id="lang">
-    <button data-v="all" class="on">הכל</button><button data-v="he">עברית</button><button data-v="en">אנגלית</button>
-   </div>
-   <label class="chk"><input type="checkbox" id="starOnly"> רק מומלצים</label>
-   <label class="chk"><input type="checkbox" id="hideDone"> הסתר נצפו</label>
+    <input type="search" id="q" placeholder="חיפוש: RSA, salt, CSRF, מרקל…">
+    <div class="seg" id="lang">
+      <button data-v="all" class="on">הכל</button><button data-v="he">עברית</button><button data-v="en">אנגלית</button>
+    </div>
+    <label class="chk"><input type="checkbox" id="starOnly"> רק מומלצים</label>
+    <label class="chk"><input type="checkbox" id="hideDone"> הסתר נצפו</label>
   </div>
   <div class="chips" id="chips"></div>
- </div>
-</header>
-<main class="wrap" id="main"></main>
+  <div id="list"></div>
+</main>
 <footer>הקישורים נפתחים ביוטיוב בלשונית חדשה. סימון "נצפה" נשמר בדפדפן הזה בלבד.</footer>
 <script>
 const V=[{"ch": 1, "id": "kPPFNrlN3zo", "len": "4:07", "title": "What is the CIA Triad", "channel": "IBM Technology", "note": "סודיות, שלמות וזמינות בארבע דקות. בסיס לכל שאלת \"איזו תכונה נפגעה\".", "start": 1, "he": false}, {"ch": 1, "id": "EqNe55IzjAw", "len": "12:34", "title": "Cybersecurity Architecture: Fundamentals of Confidentiality, Integrity, and Availability", "channel": "IBM Technology", "note": "הרחבה של CIA עם דוגמאות לכל תכונה ולמנגנונים שמגינים עליה.", "start": 0, "he": false}, {"ch": 1, "id": "KJ4uS8YsO0U", "len": "2:31", "title": "Keys And Kerchoffs Principle - Applied Cryptography", "channel": "Udacity", "note": "עקרון קרקהוף: האלגוריתם גלוי, רק המפתח סודי.", "start": 0, "he": false}, {"ch": 1, "id": "h_BC6QMWDbA", "len": "6:06", "title": "What is Threat Modeling and Why Is It Important?", "channel": "CBT Nuggets", "note": "מה זה מודל תוקף ולמה מגדירים אותו לפני שבוחרים הגנה.", "start": 0, "he": false}, {"ch": 1, "id": "jHFLkvDV1qQ", "len": "18:40", "title": "הצפנה כמענה לבעיות אבטחת מידע- ד\"ר אורן איתן", "channel": "TAUVOD", "note": "הרצאה בעברית מאוניברסיטת תל אביב: איך הצפנה עונה על בעיות אבטחת מידע.", "start": 0, "he": true}, {"ch": 2, "id": "5uXPh010wIo", "len": "10:59", "title": "קורס סייבר למתחילים! - הצפנה סימטרית וצופן קיסר", "channel": "בינה | Bina", "note": "בעברית: הצפנה סימטרית וצופן קיסר מאפס.", "start": 1, "he": true}, {"ch": 2, "id": "SkJcmCaHqS0", "len": "2:02", "title": "Vigenere CIpher", "channel": "Udacity", "note": "צופן Vigenère בשתי דקות, עם דוגמה.", "start": 0, "he": false}, {"ch": 2, "id": "QgHnr8-h0xI", "len": "15:33", "title": "Cryptanalysis of Vigenere cipher:  not just how, but why it works", "channel": "Proof of Concept", "note": "איך שוברים את Vigenère: מציאת אורך המפתח וניתוח תדירויות.", "start": 0, "he": false}, {"ch": 2, "id": "FlIG3TvQCBQ", "len": "2:56", "title": "The one-time pad | Journey into cryptography | Computer Science | Khan Academy", "channel": "Khan Academy", "note": "One-Time Pad: למה הוא בטוח לחלוטין ולמה אסור להשתמש במפתח פעמיים.", "start": 0, "he": false}, {"ch": 2, "id": "O4xNJsjtN6E", "len": "14:14", "title": "AES Explained (Advanced Encryption Standard) - Computerphile", "channel": "Computerphile", "note": "המבנה של AES ברמה מושגית: סבבים, החלפה ותמורה.", "start": 0, "he": false}, {"ch": 2, "id": "j53iXhTSi_s", "len": "8:18", "title": "Introduction to Data Encryption Standard (DES)", "channel": "Neso Academy", "note": "מבוא ל-DES: בלוק של 64 ביט, מפתח של 56 ביט.", "start": 0, "he": false}, {"ch": 2, "id": "Rk0NIQfEXBA", "len": "14:16", "title": "Modes of Operation - Computerphile", "channel": "Computerphile", "note": "ECB מול CBC מול CTR, ולמה ECB חושף דפוסים.", "start": 0, "he": false}, {"ch": 2, "id": "VmNk-6GTqRE", "len": "6:59", "title": "Block Cipher Modes of Operation", "channel": "Neso Academy", "note": "סקירה קצרה של כל מצבי ההפעלה של צופן בלוקים.", "start": 0, "he": false}, {"ch": 2, "id": "S9JGmA5_unY", "len": "5:06", "title": "How secure is 256 bit security?", "channel": "3Blue1Brown", "note": "כמה גדול באמת 2^256: אינטואיציה לגודל מרחב מפתחות ו-brute force.", "start": 0, "he": false}, {"ch": 3, "id": "b4b8ktEV4Bg", "len": "8:12", "title": "Hashing Algorithms and Security - Computerphile", "channel": "Computerphile", "note": "תכונות פונקציית hash: חד-כיווניות ועמידות להתנגשויות.", "start": 1, "he": false}, {"ch": 3, "id": "DMtFhACPnTY", "len": "10:21", "title": "SHA: Secure Hashing Algorithm - Computerphile", "channel": "Computerphile", "note": "איך SHA עובד מבפנים, ברמה מושגית.", "start": 0, "he": false}, {"ch": 3, "id": "jsraR-el8_o", "len": "14:21", "title": "Hash Collisions & The Birthday Paradox - Computerphile", "channel": "Computerphile", "note": "פרדוקס יום ההולדת ולמה התנגשות מגיעה אחרי כ-√N ניסיונות.", "start": 0, "he": false}, {"ch": 3, "id": "8ZtInClXe1Q", "len": "9:24", "title": "How NOT to Store Passwords! - Computerphile", "channel": "Computerphile", "note": "איך לא לשמור סיסמאות: טקסט גלוי, hash בלי salt, ומה עושים נכון.", "start": 0, "he": false}, {"ch": 3, "id": "--tnZMuoK3E", "len": "4:30", "title": "Password Hashing, Salts, Peppers | Explained!", "channel": "Seytonic", "note": "salt ו-pepper בארבע דקות.", "start": 0, "he": false}, {"ch": 3, "id": "fzMIjWFYQl0", "len": "6:52", "title": "MAC / HMAC - Message Authentication Code / Hash Bashed Message Authentication Codes", "channel": "Practical Networking", "note": "MAC ו-HMAC: שלמות ואימות מקור בעזרת מפתח משותף.", "start": 0, "he": false}, {"ch": 3, "id": "wlSG3pEiQdc", "len": "9:24", "title": "Securing Stream Ciphers (HMAC) - Computerphile", "channel": "Computerphile", "note": "למה הצפנה לבדה לא מספיקה, ואיך HMAC משלים אותה.", "start": 0, "he": false}, {"ch": 3, "id": "JI_N4FvVKSM", "len": "3:56", "title": "[Cryptography4, Video 14] Encrypt-then-MAC is Better", "channel": "CS 161 (Computer Security) at UC Berkeley", "note": "אוניברסיטת ברקלי: למה Encrypt-then-MAC עדיף על השילובים האחרים.", "start": 0, "he": false}, {"ch": 3, "id": "ErkMBJjsT10", "len": "2:44", "title": "Hashing הסבר והדגמה - גיבוב", "channel": "CISO Plus Israel", "note": "בעברית: הסבר קצר והדגמה של גיבוב.", "start": 0, "he": true}, {"ch": 4, "id": "GSIDS_lvRv4", "len": "6:20", "title": "Public Key Cryptography - Computerphile", "channel": "Computerphile", "note": "הרעיון של מפתח ציבורי ומפתח פרטי.", "start": 0, "he": false}, {"ch": 4, "id": "NmM9HA2MQGI", "len": "8:40", "title": "Secret Key Exchange (Diffie-Hellman) - Computerphile", "channel": "Computerphile", "note": "דיפי-הלמן עם אנלוגיית הצבעים, ואז המתמטיקה.", "start": 1, "he": false}, {"ch": 4, "id": "YEBfamv-_do", "len": "8:38", "title": "Diffie-Hellman Key Exchange", "channel": "Art of the Problem", "note": "דיפי-הלמן באנימציה, כולל הבעיה של לוגריתם דיסקרטי.", "start": 0, "he": false}, {"ch": 4, "id": "YAXA7crdAG0", "len": "5:54", "title": "פרוטוקול דיפי הלמן לשיתוף סודות (מפתחות) - Diffie Hellman protocol", "channel": "Alon Lalezari - אלון ללזרי", "note": "בעברית: פרוטוקול דיפי-הלמן לשיתוף מפתח.", "start": 0, "he": true}, {"ch": 4, "id": "7m9EVJJkw9Y", "len": "7:34", "title": "[Cryptography5, Video 14] Diffie-Hellman Man-in-the-Middle Attack", "channel": "CS 161 (Computer Security) at UC Berkeley", "note": "מתקפת אדם-בתווך על דיפי-הלמן ולמה צריך אימות.", "start": 0, "he": false}, {"ch": 4, "id": "4zahvcJ9glg", "len": "8:40", "title": "The RSA Encryption Algorithm (1 of 2: Computing an Example)", "channel": "Eddie Woo", "note": "דוגמת RSA מחושבת עם מספרים קטנים. בדיוק סוג החישוב שבמבחן.", "start": 0, "he": false}, {"ch": 4, "id": "Pq8gNbvfaoM", "len": "15:48", "title": "RSA Algorithm - How does it work? - I'll PROVE it with an Example! -- Cryptography - Practical TLS", "channel": "Practical Networking", "note": "RSA צעד אחר צעד: יצירת מפתחות, הצפנה, פענוח וחתימה.", "start": 0, "he": false}, {"ch": 4, "id": "oLriDcElid4", "len": "14:28", "title": "קריפטוגרפיה - הצפנה אסימטרית - הצפנת RSA encryption", "channel": "Alon Lalezari - אלון ללזרי", "note": "בעברית: הצפנה אסימטרית ואלגוריתם RSA.", "start": 0, "he": true}, {"ch": 4, "id": "cbGB__V8MNk", "len": "17:35", "title": "Square & Multiply Algorithm - Computerphile", "channel": "Computerphile", "note": "חזקה מהירה (Square & Multiply) לחישוב a^b mod n ביד.", "start": 0, "he": false}, {"ch": 4, "id": "fz1vxq5ts5I", "len": "6:00", "title": "Extended Euclidean Algorithm and Inverse Modulo Tutorial", "channel": "Best Friends Farm", "note": "אוקלידס המורחב: איך מוצאים את d כהופכי של e מודולו φ.", "start": 0, "he": false}, {"ch": 4, "id": "s22eJ1eVLTU", "len": "10:17", "title": "What are Digital Signatures? - Computerphile", "channel": "Computerphile", "note": "חתימה דיגיטלית: חותמים עם הפרטי, מאמתים עם הציבורי.", "start": 0, "he": false}, {"ch": 4, "id": "zUEB5y2z4HE", "len": "3:55", "title": "מה זה הצפנה אסימטרית ואיך זה עובד? (ב-4 דקות בלבד)", "channel": "בינה | Bina", "note": "בעברית, ארבע דקות: מה זו הצפנה אסימטרית.", "start": 0, "he": true}, {"ch": 5, "id": "0ctat6RBrFo", "len": "9:22", "title": "Tech Talk: What is Public Key Infrastructure (PKI)?", "channel": "IBM Technology", "note": "מה זה PKI ואיזה תפקיד יש ל-CA.", "start": 1, "he": false}, {"ch": 5, "id": "heacxYUnFHA", "len": "16:41", "title": "Digital Certificates: Chain of Trust", "channel": "Dave Crabbe", "note": "שרשרת אמון: Root, Intermediate ותעודת השרת.", "start": 0, "he": false}, {"ch": 5, "id": "x_I6Qc35PuQ", "len": "16:23", "title": "Certificates and Certificate Authority Explained", "channel": "Hussein Nasser", "note": "תעודות ורשויות אישור לעומק: מה נחתם ועל ידי מי.", "start": 0, "he": false}, {"ch": 5, "id": "sw93jjOow8Q", "len": "4:28", "title": "תעודות דיגיטליות -הסבר והדגמה", "channel": "מכללת פרקטיקיו - קורסי תכנות / סייבר / ניהול רשת", "note": "בעברית: תעודות דיגיטליות, הסבר והדגמה.", "start": 0, "he": true}, {"ch": 6, "id": "86cQJ0MMses", "len": "16:59", "title": "TLS Handshake Explained - Computerphile", "channel": "Computerphile", "note": "לחיצת היד של TLS שלב אחר שלב.", "start": 1, "he": false}, {"ch": 6, "id": "j9QmMEWmcfo", "len": "5:54", "title": "SSL, TLS, HTTPS Explained", "channel": "ByteByteGo", "note": "SSL, TLS ו-HTTPS בשש דקות עם תרשימים.", "start": 0, "he": false}, {"ch": 6, "id": "T4Df5_cojAs", "len": "11:02", "title": "How does HTTPS work? What's a CA? What's a self-signed Certificate?", "channel": "kubucation", "note": "איך HTTPS עובד, מה תפקיד ה-CA ומה זו תעודה בחתימה עצמית.", "start": 0, "he": false}, {"ch": 6, "id": "_ThbEWMxpuc", "len": "14:54", "title": "תעודה דיגיטלית - SSL - HTTPS למתחילים", "channel": "מכללת פרקטיקיו - קורסי תכנות / סייבר / ניהול רשת", "note": "בעברית: תעודה דיגיטלית, SSL ו-HTTPS למתחילים.", "start": 0, "he": true}, {"ch": 7, "id": "bBC-nXj3Ng4", "len": "25:16", "title": "But how does bitcoin actually work?", "channel": "3Blue1Brown", "note": "ההסבר הטוב ביותר לביטקוין: חתימות, שרשרת hash והוכחת עבודה.", "start": 1, "he": false}, {"ch": 7, "id": "SSo_EIwHSd4", "len": "6:00", "title": "How does a blockchain work - Simply Explained", "channel": "Simply Explained", "note": "בלוקצ׳יין בשש דקות: למה שינוי בלוק שובר את כל השרשרת.", "start": 0, "he": false}, {"ch": 7, "id": "fB41w3JcR7U", "len": "2:31", "title": "Merkle Tree | Merkle Root | Blockchain", "channel": "Telusko", "note": "עץ מרקל ושורש מרקל בשתי דקות וחצי.", "start": 0, "he": false}, {"ch": 7, "id": "XLcWy1uV8YM", "len": "9:36", "title": "What is Proof of Work? (Cryptocurrency Explanation)", "channel": "Whiteboard Crypto", "note": "הוכחת עבודה: מה הכורים מחפשים ולמה זה יקר.", "start": 0, "he": false}, {"ch": 7, "id": "td5rS5KnhJQ", "len": "6:20", "title": "מה זה בלוקצ׳יין ואיך הטכנולוגיה הזו עובדת", "channel": "Bits of Gold", "note": "בעברית: מה זה בלוקצ׳יין ואיך הוא עובד.", "start": 0, "he": true}, {"ch": 7, "id": "xg4tDRhEI6w", "len": "5:52", "title": "מה זה כריית ביטקוין ואיך זה באמת עובד", "channel": "Bits of Gold", "note": "בעברית: מה זו כריית ביטקוין.", "start": 0, "he": true}, {"ch": 8, "id": "_jKylhJtPmI", "len": "8:59", "title": "Hacking Websites with SQL Injection - Computerphile", "channel": "Computerphile", "note": "הזרקת SQL ברמה המושגית, ולמה שאילתות עם פרמטרים פותרות אותה.", "start": 1, "he": false}, {"ch": 8, "id": "wcaiKgQU6VE", "len": "2:39", "title": "What Is SQL Injection?", "channel": "Hacksplaining", "note": "הזרקת SQL באנימציה קצרה.", "start": 0, "he": false}, {"ch": 8, "id": "1dBBhmbvpqo", "len": "7:34", "title": "8200 אקדמי - הכנה לגאמא סייבר - SQL INJECTION", "channel": "8200 אקדמי", "note": "בעברית, מ-8200 אקדמי: SQL Injection.", "start": 0, "he": true}, {"ch": 8, "id": "EoaDgUgS6QA", "len": "11:27", "title": "Cross-Site Scripting (XSS) Explained", "channel": "PwnFunction", "note": "XSS: Stored מול Reflected, ומה התוקף מרוויח.", "start": 0, "he": false}, {"ch": 8, "id": "eWEgUcHPle0", "len": "14:11", "title": "Cross-Site Request Forgery (CSRF) Explained", "channel": "PwnFunction", "note": "CSRF: למה הדפדפן מצרף עוגיות, ואיך טוקן מגן.", "start": 0, "he": false}, {"ch": 8, "id": "bSJm8-zJTzQ", "len": "12:19", "title": "The Same Origin Policy - Hacker History", "channel": "LiveOverflow", "note": "מדיניות Same Origin: מה מותר לסקריפט לקרוא ומה לא.", "start": 0, "he": false}, {"ch": 9, "id": "A7nih6SANYs", "len": "11:35", "title": "ARP Poisoning | Man-in-the-Middle Attack", "channel": "CertBros", "note": "הרעלת ARP ואיך היא מובילה לאדם-בתווך ברשת מקומית.", "start": 0, "he": false}, {"ch": 9, "id": "7MT1F0O3_Yw", "len": "11:04", "title": "DNS Cache Poisoning - Computerphile", "channel": "Computerphile", "note": "הרעלת מטמון DNS: ניחוש TXID ותשובות מזויפות.", "start": 1, "he": false}, {"ch": 9, "id": "B-v_wJIJUI4", "len": "5:05", "title": "Hacker History: The Great DNS Vulnerability of 2008 by Dan Kaminsky", "channel": "Duo Security", "note": "מתקפת קמינסקי מ-2008 ולמה הוסיפו פורט מקור אקראי.", "start": 0, "he": false}, {"ch": 9, "id": "tClcCMrXzek", "len": "7:28", "title": "SYN Flood Attack Explained", "channel": "Hussein Nasser", "note": "SYN Flood: איך חצי-חיבורים ממלאים את השרת, ו-SYN cookies.", "start": 0, "he": false}, {"ch": 9, "id": "bDAY-oUP0DQ", "len": "9:52", "title": "Denial of Service Attacks Explained", "channel": "IBM Technology", "note": "סוגי DoS ו-DDoS בסקירה רחבה.", "start": 0, "he": false}, {"ch": 9, "id": "rL4-vbsN35w", "len": "14:04", "title": "Stateful vs Stateless Firewalls - You NEED to know the difference", "channel": "LearnCantrill", "note": "חומת אש עם מצב (stateful) מול חומת אש בלי מצב.", "start": 0, "he": false}];
@@ -102,13 +128,6 @@ const st={q:'',lang:'all',ch:0,star:false,hide:false};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// theme
-(function(){const t=store.get('cyber-vids-theme',null); if(t) document.documentElement.dataset.theme=t;})();
-$('#theme').onclick=()=>{const r=document.documentElement;
-  const dark=r.dataset.theme? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
-  r.dataset.theme=dark?'light':'dark'; store.set('cyber-vids-theme',r.dataset.theme);};
-
-// chips
 const chips=$('#chips');
 chips.innerHTML='<button data-c="0" class="on">כל הפרקים</button>'+Object.entries(CH).map(([n,t])=>`<button data-c="${n}">${n}. ${esc(t)}</button>`).join('');
 chips.onclick=e=>{const b=e.target.closest('button'); if(!b) return; st.ch=+b.dataset.c;
@@ -139,13 +158,13 @@ function render(){
     &&(!st.hide||!watched.has(v.id))&&(!st.q||(v.title+' '+v.channel+' '+v.note+' '+CH[v.ch]).toLowerCase().includes(st.q)));
   const by={}; list.forEach(v=>(by[v.ch]=by[v.ch]||[]).push(v));
   const keys=Object.keys(by).sort((a,b)=>a-b);
-  $('#main').innerHTML=keys.length? keys.map(k=>`<section><h2><span class="n">${k}</span>${esc(CH[k])}<span class="c">${by[k].length} סרטונים</span></h2>
+  $('#list').innerHTML=keys.length? keys.map(k=>`<section><h2 class="sec"><span class="n">${k}</span>${esc(CH[k])}<span class="c">${by[k].length} סרטונים</span></h2>
     <div class="grid">${by[k].sort((a,b)=>b.start-a.start||a.he-b.he).map(card).join('')}</div></section>`).join('')
     : '<p class="empty">לא נמצאו סרטונים. נסו חיפוש אחר.</p>';
   const n=V.filter(v=>watched.has(v.id)).length;
-  $('#prog').innerHTML=`נצפו <b>${n}</b> מתוך ${V.length}`; $('#pbar').style.width=(100*n/V.length)+'%';
+  $('#prog').innerHTML=`נצפו <b>${n}</b> מתוך ${V.length} סרטונים`; $('#pbar').style.width=(100*n/V.length)+'%';
 }
-$('#main').onchange=e=>{const id=e.target.dataset.id; if(!id) return;
+$('#list').onchange=e=>{const id=e.target.dataset.id; if(!id) return;
   e.target.checked?watched.add(id):watched.delete(id); store.set('cyber-vids-watched',[...watched]); render();};
 render();
 </script>
