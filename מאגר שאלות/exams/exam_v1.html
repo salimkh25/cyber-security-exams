@@ -1,0 +1,121 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מבוא לאבטחת סייבר – מבחן תרגול – גרסה 1</title><style>
+:root{--ink:#1d1d1f;--muted:#6e6e73;--line:#d9d9de;--accent:#2f5bd3;--ok:#1f8a4c;--bad:#c0392b;--bg:#fff;--card:#fafafa}
+@media (prefers-color-scheme:dark){:root:not(.print){--ink:#ececf0;--muted:#a1a1aa;--line:#3a3a40;--accent:#7aa2ff;--ok:#4cc38a;--bad:#ff6b5e;--bg:#141416;--card:#1c1c20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Arial Hebrew","Rubik","Segoe UI",Arial,sans-serif}
+.page{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+h1{font-size:24px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+.fields{display:flex;gap:28px;margin-top:14px;font-size:14px;flex-wrap:wrap}
+.fields span{border-bottom:1px solid var(--muted);min-width:150px;display:inline-block}
+.q{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.qh{font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.qh small{font-weight:400;color:var(--muted);font-size:12px}
+.stem .ln{margin:2px 0}
+code{font:14px Menlo,Consolas,monospace;background:rgba(127,127,127,.12);padding:1px 4px;border-radius:4px}
+pre{direction:ltr;text-align:left;background:rgba(127,127,127,.12);border-radius:6px;padding:10px 12px;font:13px/1.5 Menlo,Consolas,monospace;overflow-x:auto;white-space:pre}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;font-size:14px}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:center}
+th{background:rgba(127,127,127,.1)}
+ol.opts{list-style:none;padding:0;margin:10px 0 0}
+ol.opts li{display:flex;gap:10px;padding:6px 8px;border-radius:7px;align-items:flex-start}
+ol.opts .l{font-weight:700;min-width:1.6em}
+ol.opts .t{flex:1}
+.ln[dir=ltr]{text-align:right}
+.practice ol.opts li{cursor:pointer;border:1px solid transparent}
+.practice ol.opts li:hover{border-color:var(--line)}
+.practice li.ok{background:rgba(31,138,76,.15);border-color:var(--ok)!important}
+.practice li.bad{background:rgba(192,57,43,.13);border-color:var(--bad)!important}
+.practice .done li{cursor:default}
+.src{color:var(--muted);font-size:12px;margin-top:8px;display:none}
+.done + .src,.reveal .src{display:block}
+.score{position:sticky;top:0;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:16px;font-weight:700;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.score button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.end{text-align:center;color:var(--muted);margin-top:30px}
+.key table{width:100%;margin-bottom:26px}
+.key td.n{font-weight:700}
+.key .note{color:var(--muted);font-size:12px}
+@media (max-width:600px){.page{padding:20px 16px 48px}.q{padding:12px}}
+@media print{pre{white-space:pre-wrap;word-break:break-all}:root{--bg:#fff;--card:#fff;--ink:#000}.page{max-width:none;padding:0}.q{border-color:#bbb}.score,.src{display:none!important}@page{margin:16mm 14mm}}
+</style></head><body class=""><div class="page">
+<header><h1>מבוא לאבטחת סייבר – מבחן תרגול</h1><div class="meta"><span>גרסה 1 מתוך 3</span><span>10 שאלות</span><span>יש לבחור את התשובה הנכונה ביותר</span></div>
+<div class="fields"><div>שם: <span></span></div><div>ת.ז: <span></span></div></div>
+</header>
+<section class="q"><div class="qh"><span>שאלה 1</span></div><div class="stem"><div class="ln" dir="rtl">איזו מבין הטענות הבאות נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">בביטקוין, מנגנון ה <bdi dir="ltr">escrow transactions</bdi> מחייב כל <bdi dir="ltr">miner</bdi> ״לנעול״ בערבון מספיק ביטקוין מראש כך שאם ייתפס שה<bdi dir="ltr">miner</bdi> איפשר לתוקף לבצע <bdi dir="ltr">double spending</bdi> ינקו את הקנס מהערבון של ה <bdi dir="ltr">miner</bdi>.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">בביטקוין, חובה לכרות ביטקוין בעצמנו אם אנחנו רוצים לבצע עסקאות בביטקוין</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">בביטקוין, לא משתמשים ב <bdi dir="ltr">One Time Pad</bdi> בכדי לייצר את הארנקים</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">escrow transactions</bdi>, המוכר חייב לאשר את העסקה כדי שהיא תהיה חוקית</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 2</span></div><div class="stem"><div class="ln" dir="rtl">אם אתר אינטרנט רוצה שדפדפנים יפנו אליו תמיד ב <bdi dir="ltr">HTTPS</bdi> ולא ב <bdi dir="ltr">HTTP</bdi> שאינו על גבי <bdi dir="ltr">TLS</bdi>, כולל דפדפנים שמעולם לא גלשו אליו, עליו להשתמש ב:</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="ltr">OCSP stapling</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="ltr">Same Origin Policy</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="ltr">OCSP</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="ltr">HSTS preload</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 3</span></div><div class="stem"><div class="ln" dir="rtl">איזה מהתרחישים הבאים ייחסמו על ידי מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">משתמש גלש לאתר <bdi dir="ltr">foo.com</bdi> ובאתר זה ישנו סקריפט ששולח טופס אל הדומיין <bdi dir="ltr">bar.com</bdi> שאליו המשתמש מחובר (ולכן הדפדפן צירף את ה <bdi dir="ltr">cookie</bdi> של המשתמש לבקשה)</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">עמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> מנסה לטעון תמונה מהדומיין <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">סקריפט שהגיע מ <bdi dir="ltr">foo.com</bdi> (זה ה <bdi dir="ltr">origin</bdi> של הסקריפט) מנסה לקרוא תוכן של תשובת <bdi dir="ltr">http</bdi> שמגיעה מ <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">סקריפט זדוני שהוחדר לעמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> ושולח את פרטי ה<bdi dir="ltr">cookie</bdi> של הקורבן אל <bdi dir="ltr">bar.com</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 4</span></div><div class="stem"><div class="ln" dir="rtl">אלגוריתם <bdi dir="ltr">3DES</bdi> יכול לתמוך אחורה בהצפנת <bdi dir="ltr">DES</bdi>. נתונים שלושה מפתחות <bdi dir="ltr">K1, K2, K3</bdi>. כיצד מוגדרת פעולת ההצפנה ב <bdi dir="ltr">3DES</bdi> שתאפשר הצפנה גם עבור <bdi dir="ltr">3DES</bdi> וגם תאפשר תמיכה אחורה בצופן <bdi dir="ltr">DES</bdi> המקורי?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="ltr">C = Enc<sub>K3</sub>(Dec<sub>K2</sub>(Enc<sub>K1</sub>(m)))</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="ltr">C = Enc<sub>K3</sub>(Dec<sub>K2</sub>(Dec<sub>K1</sub>(m)))</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="ltr">C = Dec<sub>K1</sub>(Enc<sub>K2</sub>(Enc<sub>K3</sub>(m)))</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="ltr">C = Dec<sub>K1</sub>(Dec<sub>K2</sub>(Dec<sub>K3</sub>(m)))</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 5</span></div><div class="stem"><div class="ln" dir="rtl">בהקשר של חתימה דיגיטלית לפי <bdi dir="ltr">textbook RSA</bdi> (כלומר ללא <bdi dir="ltr">hash</bdi>), אם ידוע שה <bdi dir="ltr">private key</bdi> הוא:</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">n = 33 d = 7</bdi> ונתונה החתימה הדיגיטלית σ כאשר <bdi dir="ltr">30=σ</bdi>. מהי ההודעה המקורית שחתמו עליה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="ltr">5</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="ltr">6</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="ltr">7</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="ltr">4</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 6</span></div><div class="stem"><div class="ln" dir="rtl">נתון:</div>
+<div class="ln" dir="rtl">- כתובת ה <bdi dir="ltr">ip</bdi> של אליס היא <bdi dir="ltr">192.168.0.1</bdi> וכתובת ה <bdi dir="ltr">MAC</bdi> שלה היא <bdi dir="ltr">AA:AA:AA:AA:AA:AA</bdi></div>
+<div class="ln" dir="rtl">- כתובת ה <bdi dir="ltr">ip</bdi> של בוב היא <bdi dir="ltr">192.168.0.2</bdi> וכתובת ה <bdi dir="ltr">MAC</bdi> שלו היא <bdi dir="ltr">BB:BB:BB:BB:BB:BB</bdi></div>
+<div class="ln" dir="rtl">- כתובת ה <bdi dir="ltr">ip</bdi> של התוקף היא <bdi dir="ltr">192.168.0.6</bdi> וכתובת ה <bdi dir="ltr">MAC</bdi> שלו היא <bdi dir="ltr">66:66:66:66:66:66</bdi> לאחר שהתוקף ביצע בהצלחה התקפת <bdi dir="ltr">ARP poisoning</bdi>, כאשר אליס שולחת הודעה לבוב, לאיזה כתובת <bdi dir="ltr">ip</bdi> היא תשלח ולאיזה כתובת <bdi dir="ltr">MAC</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">לכתובת <bdi dir="ltr">ip</bdi> של <bdi dir="ltr">192.168.0.6</bdi> ולכתובת <bdi dir="ltr">MAC</bdi> של <bdi dir="ltr">BB:BB:BB:BB:BB:BB</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">לכתובת <bdi dir="ltr">ip</bdi> של <bdi dir="ltr">192.168.0.6</bdi> ולכתובת <bdi dir="ltr">MAC</bdi> של <bdi dir="ltr">66:66:66:66:66:66</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">לכתובת <bdi dir="ltr">ip</bdi> של <bdi dir="ltr">192.168.0.2</bdi> ולכתובת <bdi dir="ltr">MAC</bdi> של <bdi dir="ltr">66:66:66:66:66:66</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">לכתובת <bdi dir="ltr">ip</bdi> של <bdi dir="ltr">192.168.0.2</bdi> ולכתובת <bdi dir="ltr">MAC</bdi> של <bdi dir="ltr">BB:BB:BB:BB:BB:BB</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 7</span></div><div class="stem"><div class="ln" dir="rtl">נתונה חומת אש על התעבורה הנכנסת אל רשת מסויימת ויוצאת מהרשת החוצה, כאשר חומת האש אינה עובדת בשכבת האפליקציה. איזו מבין ההתקפות הבאות חומת אש שכזו כן מגינה מפניה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">התקפה בה התוקף נמצא בתוך הרשת והוא תוקף מחשב אחר ברשת</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">התקפה המבצעת <bdi dir="ltr">spoofing</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">התקפה המתבצעת ע״י אימייל המכיל קוד זדוני</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">התקפה המנצלת חולשה במימוש של חומת האש</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 8</span></div><div class="stem"><div class="ln" dir="rtl">בתהליך ה-<bdi dir="ltr">TLS Handshake</bdi>, הלקוח והשרת מחליפים ביניהם מספרים אקראיים (<bdi dir="ltr">ClientHello.random</bdi> ו-<bdi dir="ltr">ServerHello.random</bdi>). מהי המטרה העיקרית של צירוף ערכים אלו?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">להסתיר את גרסת ה <bdi dir="ltr">TLS</bdi> מפני אויב מאזין.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">לאמת את תעודת השרת</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">להבטיח שהמפתח הסימטרי שיהיה בשימוש יהיה שונה בכל חיבור</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">לאפשר הצפנה א-סימטרית מהירה יותר על ידי <bdi dir="ltr">IV</bdi> (וקטור איתחול) מתאים.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 9</span></div><div class="stem"><div class="ln" dir="rtl">איזו מבין הטענות הבאות אינה נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl"><bdi dir="ltr">OCSP stapling</bdi> הינו יעיל בזכות השימוש בעץ מרקל.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">השימוש ב <bdi dir="ltr">CRL</bdi> תורם לבטיחות של <bdi dir="ltr">PKI</bdi>.</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl"><bdi dir="ltr">OCSP stapling</bdi> הינו מנגנון שונה לחלוטין מ<bdi dir="ltr">OCSP</bdi> רגיל.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">ניתן לתמוך ב <bdi dir="ltr">OCSP</bdi> וגם ב <bdi dir="ltr">CRL</bdi>, ולא חייבים לבחור רק אחד מהם.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 10</span></div><div class="stem"><div class="ln" dir="rtl">היכן ביטקוין משתמש ב <bdi dir="ltr">nonce</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">soft fork</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">hard fork</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">כאשר <bdi dir="ltr">miner</bdi> מצטרף אל הרשת</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">בתהליך החיפוש אחר בלוק חדש (הבלוק הבא שיצטרף לבלוקצ'יין)</div></span></li>
+</ol>
+</section>
+<div class="end">— סוף המבחן —</div></div>
+</body></html>

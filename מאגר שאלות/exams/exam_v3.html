@@ -1,0 +1,137 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מבוא לאבטחת סייבר – מבחן תרגול – גרסה 3</title><style>
+:root{--ink:#1d1d1f;--muted:#6e6e73;--line:#d9d9de;--accent:#2f5bd3;--ok:#1f8a4c;--bad:#c0392b;--bg:#fff;--card:#fafafa}
+@media (prefers-color-scheme:dark){:root:not(.print){--ink:#ececf0;--muted:#a1a1aa;--line:#3a3a40;--accent:#7aa2ff;--ok:#4cc38a;--bad:#ff6b5e;--bg:#141416;--card:#1c1c20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Arial Hebrew","Rubik","Segoe UI",Arial,sans-serif}
+.page{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+h1{font-size:24px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+.fields{display:flex;gap:28px;margin-top:14px;font-size:14px;flex-wrap:wrap}
+.fields span{border-bottom:1px solid var(--muted);min-width:150px;display:inline-block}
+.q{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.qh{font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.qh small{font-weight:400;color:var(--muted);font-size:12px}
+.stem .ln{margin:2px 0}
+code{font:14px Menlo,Consolas,monospace;background:rgba(127,127,127,.12);padding:1px 4px;border-radius:4px}
+pre{direction:ltr;text-align:left;background:rgba(127,127,127,.12);border-radius:6px;padding:10px 12px;font:13px/1.5 Menlo,Consolas,monospace;overflow-x:auto;white-space:pre}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;font-size:14px}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:center}
+th{background:rgba(127,127,127,.1)}
+ol.opts{list-style:none;padding:0;margin:10px 0 0}
+ol.opts li{display:flex;gap:10px;padding:6px 8px;border-radius:7px;align-items:flex-start}
+ol.opts .l{font-weight:700;min-width:1.6em}
+ol.opts .t{flex:1}
+.ln[dir=ltr]{text-align:right}
+.practice ol.opts li{cursor:pointer;border:1px solid transparent}
+.practice ol.opts li:hover{border-color:var(--line)}
+.practice li.ok{background:rgba(31,138,76,.15);border-color:var(--ok)!important}
+.practice li.bad{background:rgba(192,57,43,.13);border-color:var(--bad)!important}
+.practice .done li{cursor:default}
+.src{color:var(--muted);font-size:12px;margin-top:8px;display:none}
+.done + .src,.reveal .src{display:block}
+.score{position:sticky;top:0;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:16px;font-weight:700;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.score button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.end{text-align:center;color:var(--muted);margin-top:30px}
+.key table{width:100%;margin-bottom:26px}
+.key td.n{font-weight:700}
+.key .note{color:var(--muted);font-size:12px}
+@media (max-width:600px){.page{padding:20px 16px 48px}.q{padding:12px}}
+@media print{pre{white-space:pre-wrap;word-break:break-all}:root{--bg:#fff;--card:#fff;--ink:#000}.page{max-width:none;padding:0}.q{border-color:#bbb}.score,.src{display:none!important}@page{margin:16mm 14mm}}
+</style></head><body class=""><div class="page">
+<header><h1>מבוא לאבטחת סייבר – מבחן תרגול</h1><div class="meta"><span>גרסה 3 מתוך 3</span><span>10 שאלות</span><span>יש לבחור את התשובה הנכונה ביותר</span></div>
+<div class="fields"><div>שם: <span></span></div><div>ת.ז: <span></span></div></div>
+</header>
+<section class="q"><div class="qh"><span>שאלה 1</span></div><div class="stem"><div class="ln" dir="rtl">אליס רוצה לשלוח הודעות לבוב, ושבוב יוכל לוודא ששתי הדרישות הבאות מתקיימות:</div>
+<div class="ln" dir="rtl">א) ההודעה הגיעה אליו בדיוק כפי שאליס שלחה אותה. ב) אליס אכן חיברה את ההודעה. נתון שבוב ואליס כבר החליפו ביניהם בצורה מאובטחת את כל סוגי המפתחות הנדרשים לתהליך. מה תשלח אליס לבוב?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">את ההודעה מוצפנת במפתח הסימטרי המשותף ביניהם.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">את ההודעה + <bdi dir="ltr">MAC</bdi> על ההודעה.</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">את ההודעה + חתימה דיגיטלית בעזרת המפתח הפומבי של בוב.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">את ההודעה מוצפנת במפתח הפומבי של בוב.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 2</span></div><div class="stem"><div class="ln" dir="rtl">נתון דף אינטרנט שמוצג בגלישה ל<bdi dir="ltr">URL</bdi> הבא:</div>
+<pre dir="ltr">http://foo.com/?name=VALUE</pre>
+<div class="ln" dir="rtl">הדף מציג את הערך של הפרמטר <bdi dir="ltr">name</bdi> ישירות בתוך תגית <bdi dir="ltr">HTML</bdi> כך:</div>
+<pre dir="ltr">&lt;div id=&quot;greeting&quot;&gt;Welcome, VALUE&lt;/div&gt;</pre>
+<div class="ln" dir="rtl">ללא כל סינון או קידוד של התוכן שמגיע מה-<bdi dir="ltr">URL</bdi>.</div>
+<div class="ln" dir="rtl">בנוסף, בדף יש טופס עם <bdi dir="ltr">Anti-CSRF Token</bdi> שמוצג בטופס כך:</div>
+<pre dir="ltr">&lt;form method=&quot;POST&quot; action=&quot;/update_password&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;random_token_value&quot;&gt;
+&lt;input type=&quot;password&quot; name=&quot;new_password&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;</pre>
+<div class="ln" dir="rtl">כאשר במקום <bdi dir="ltr">random_token_value</bdi> יופיע <bdi dir="ltr">token</bdi> אקראי שהשרת בחר.</div>
+<div class="ln" dir="rtl">איזו מהטענות הבאות אינה נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">ה-<bdi dir="ltr">CSRF Token</bdi> לא יכול להיגנב כי הוא ב-<bdi dir="ltr">POST</bdi> בלבד ולא ב-<bdi dir="ltr">URL</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">גניבת ה-<bdi dir="ltr">csrf_token</bdi> מאפשרת לתוקף לבצע בקשות <bdi dir="ltr">POST</bdi> עם טוקן תקין שהשרת יקבל כתקין</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">הדף פגיע ל-<bdi dir="ltr">Reflected XSS</bdi> מכיוון שהפרמטר <bdi dir="ltr">name</bdi> מוצג ללא סינון</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">תוקף יכול להזריק קוד <bdi dir="ltr">JavaScript</bdi> ב-<bdi dir="ltr">name</bdi> ולגנוב את ה-<bdi dir="ltr">csrf_token</bdi> מהטופס</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 3</span></div><div class="stem"><div class="ln" dir="rtl">ב <bdi dir="ltr">TLS</bdi>, נתון כי תוקף <bdi dir="ltr">Man in the middle</bdi> החליף תו בהודעת ה <bdi dir="ltr">ClientHello</bdi> שהלקוח שלח לשרת. מה השלב המוקדם ביותר שזה יתגלה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">מיד לאחר שה <bdi dir="ltr">ClientKeyExchange</bdi> הגיע לשרת</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">מיד לאחר שה <bdi dir="ltr">ServerHello</bdi> הגיע ללקוח</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">מיד לאחר שה <bdi dir="ltr">ClientHello</bdi> הגיע לשרת</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">מיד לאחר שה <bdi dir="ltr">ClientFinish</bdi> הגיע לשרת</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 4</span></div><div class="stem"><div class="ln" dir="rtl">איזה מהתרחישים הבאים ייחסמו על ידי מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">סקריפט זדוני שהוחדר לעמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> ושולח את פרטי ה<bdi dir="ltr">cookie</bdi> של הקורבן אל <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">עמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> מנסה לטעון תמונה מהדומיין <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">סקריפט שהגיע מ <bdi dir="ltr">foo.com</bdi> (זה ה <bdi dir="ltr">origin</bdi> של הסקריפט) מנסה לקרוא תוכן של תשובת <bdi dir="ltr">http</bdi> שמגיעה מ <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">משתמש גלש לאתר <bdi dir="ltr">foo.com</bdi> ובאתר זה ישנו סקריפט ששולח טופס אל הדומיין <bdi dir="ltr">bar.com</bdi> שאליו המשתמש מחובר (ולכן הדפדפן צירף את ה <bdi dir="ltr">cookie</bdi> של המשתמש לבקשה)</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 5</span></div><div class="stem"><div class="ln" dir="rtl">איזו טענה אינה נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">מנגנון <bdi dir="ltr">Certificate Transparency</bdi> ומנגנון <bdi dir="ltr">Certificate Revocation List (CRL)</bdi> פותרים בעיות שונות</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Online Certificate Status Protocols (OCSP)</bdi> ו מנגנון ה <bdi dir="ltr">Certificate Transparency</bdi> פותרים בעיות שונות</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Signed Certificate Timestamp (SCT)</bdi> נועד לפתור בעיית פרטיות הקיימת במנגנון ה <bdi dir="ltr">OCSP</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">מנגנון <bdi dir="ltr">Certificate Transparency</bdi> בא לידי ביטוי ב <bdi dir="ltr">certificates</bdi> על ידי ערכי ה <bdi dir="ltr">Signed Certificate Timestamp (SCT)</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 6</span></div><div class="stem"><div class="ln" dir="rtl">איזו מהטענות הבאות נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">אפשר להשתמש בבוטים רק למטרות <bdi dir="ltr">DDoS</bdi>.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">שולחים בקשת <bdi dir="ltr">DNS</bdi> מפורט אקראי כדי להקשות על ניחוש הפורט ע"י תוקף.</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">בכדי ש <bdi dir="ltr">SSL/TLS</bdi> יגן על מידע רגיש, חובה על הלקוח והשרת להיות מצוידים בתעודה תקנית המוכיחה את זהותם.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">משתמשים ב <bdi dir="ltr">DMZ</bdi> כאשר לא ניתן להשתמש בחומת אש.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 7</span></div><div class="stem"><div class="ln" dir="rtl">תכונת ה <bdi dir="ltr">second pre image resistance</bdi> מוגדרת כ:</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">בהינתן הודעה אקראית <bdi dir="ltr">m</bdi>, קשה למצוא הודעה <bdi dir="ltr">m’</bdi> ששונה מ <bdi dir="ltr">m</bdi>, כך ש <bdi dir="ltr">h(m) = h(m’)</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">בהינתן <bdi dir="ltr">digest d</bdi> של הודעה אקראית, קשה למצוא <bdi dir="ltr">digest d’</bdi> כך ש <bdi dir="ltr">d</bdi> שונה מ <bdi dir="ltr">d’</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">בהינתן הודעה אקראית <bdi dir="ltr">m</bdi>, קשה למצוא הודעה <bdi dir="ltr">m’</bdi> ששונה מ <bdi dir="ltr">m</bdi>, כך ש <bdi dir="ltr">h(m)</bdi> שונה מ <bdi dir="ltr">h(m’)</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">בהינתן <bdi dir="ltr">digest d</bdi> של הודעה אקראית, קשה למצוא הודעה <bdi dir="ltr">m</bdi> כך ש <bdi dir="ltr">h(m)=d</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 8</span></div><div class="stem"><div class="ln" dir="rtl">איזה מהתיאורים הבאים מתאר את התקפת <bdi dir="ltr">ARP poisoning</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">תוקף מאזין לתעבורת <bdi dir="ltr">ARP</bdi> ומזהה הודעות <bdi dir="ltr">ARP</bdi> פגיעות, ומחלץ מהן את כתובת ה <bdi dir="ltr">IP</bdi> של הקורבנות.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">תוקף שולח הודעות <bdi dir="ltr">ARP</bdi> שקריות בהן הוא משקר לגבי מיפוי בין כתובת <bdi dir="ltr">MAC</bdi> ו <bdi dir="ltr">IP</bdi>, כדי שהתעבורה של הקורבן תגיע אליו (אל התוקף).</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">תוקף שולח הודעות <bdi dir="ltr">ARP</bdi> אל שרת ה <bdi dir="ltr">DNS</bdi> המקומי של הרשת, כדי ששרת ה <bdi dir="ltr">DNS</bdi> יעבוד כמו <bdi dir="ltr">hub</bdi> במקום כמו <bdi dir="ltr">switch</bdi>.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">תוקף שולח הודעות <bdi dir="ltr">ARP</bdi> רבות אל ה <bdi dir="ltr">switch</bdi> כדי להציף את הטבלה של ה <bdi dir="ltr">switch</bdi> במיפויים שקריים.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 9</span></div><div class="stem"><div class="ln" dir="rtl">נתון הפרוטוקול הבא להעברה של מפתח משותף <bdi dir="ltr">K</bdi> מאליס לבוב:</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">1</bdi>. אליס מגרילה באקראי מפתח ארוך <bdi dir="ltr">K</bdi>.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">2</bdi>. אליס מגרילה מחרוזת <bdi dir="ltr">K<sub>A</sub></bdi> חד פעמית אקראית באורך |<bdi dir="ltr">K|</bdi>.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">3</bdi>. אליס מחשבת את <bdi dir="ltr">K<sub>1</sub></bdi> באופן הבא: <bdi dir="ltr">K<sub>1</sub> = K xor K<sub>A</sub></bdi>, ואליס שולחת את <bdi dir="ltr">K<sub>1</sub></bdi> לבוב.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">4</bdi>. בוב מגריל מחרוזת <bdi dir="ltr">K<sub>B</sub></bdi> חד פעמית אקראית באורך |<bdi dir="ltr">K<sub>1</sub>|</bdi>.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">5</bdi>. בוב מחשב את <bdi dir="ltr">K<sub>2</sub></bdi> באופן הבא: <bdi dir="ltr">K<sub>2</sub> = K<sub>1</sub> xor K<sub>B</sub></bdi>, ושולח לאליס את <bdi dir="ltr">K<sub>2</sub></bdi>.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">6</bdi>. אליס מחשבת את <bdi dir="ltr">K<sub>3</sub></bdi> באופן הבא: <bdi dir="ltr">K<sub>3</sub> = K<sub>2</sub> xor K<sub>A</sub></bdi>, ואליס שולחת את <bdi dir="ltr">K<sub>3</sub></bdi> לבוב.</div>
+<div class="ln" dir="rtl"><bdi dir="ltr">7</bdi>. בוב מחשב: <bdi dir="ltr">K<sub>3</sub> xor K<sub>B</sub></bdi>, ומקבל את <bdi dir="ltr">K</bdi>. איזו מהטענות הבאות נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">הפרוטוקול מוגן כנגד אויב מאזין וגם מוגן כנגד אויב <bdi dir="ltr">MitM</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">הפרוטוקול מוגן כנגד אויב מאזין אך אינו מוגן כנגד אויב <bdi dir="ltr">MitM</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">הפרוטוקול מוגן כנגד אויב <bdi dir="ltr">MitM</bdi>, בתנאי שהאויב לא יכול לעכב הודעות</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">הפרוטוקול אינו מוגן כנגד אויב מאזין</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 10</span></div><div class="stem"><div class="ln" dir="rtl">איזה מנגנון מאפשר לשרת להגיד לדפדפן אלו משאבים מותר לדפדפן לטעון/להריץ בהקשר של העמוד הנוכחי?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="ltr">One time pad</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="ltr">CSRF</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="ltr">XSS</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="ltr">CSP</div></span></li>
+</ol>
+</section>
+<div class="end">— סוף המבחן —</div></div>
+</body></html>

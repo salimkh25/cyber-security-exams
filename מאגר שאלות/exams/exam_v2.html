@@ -1,0 +1,121 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מבוא לאבטחת סייבר – מבחן תרגול – גרסה 2</title><style>
+:root{--ink:#1d1d1f;--muted:#6e6e73;--line:#d9d9de;--accent:#2f5bd3;--ok:#1f8a4c;--bad:#c0392b;--bg:#fff;--card:#fafafa}
+@media (prefers-color-scheme:dark){:root:not(.print){--ink:#ececf0;--muted:#a1a1aa;--line:#3a3a40;--accent:#7aa2ff;--ok:#4cc38a;--bad:#ff6b5e;--bg:#141416;--card:#1c1c20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Arial Hebrew","Rubik","Segoe UI",Arial,sans-serif}
+.page{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+h1{font-size:24px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+.fields{display:flex;gap:28px;margin-top:14px;font-size:14px;flex-wrap:wrap}
+.fields span{border-bottom:1px solid var(--muted);min-width:150px;display:inline-block}
+.q{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.qh{font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.qh small{font-weight:400;color:var(--muted);font-size:12px}
+.stem .ln{margin:2px 0}
+code{font:14px Menlo,Consolas,monospace;background:rgba(127,127,127,.12);padding:1px 4px;border-radius:4px}
+pre{direction:ltr;text-align:left;background:rgba(127,127,127,.12);border-radius:6px;padding:10px 12px;font:13px/1.5 Menlo,Consolas,monospace;overflow-x:auto;white-space:pre}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;font-size:14px}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:center}
+th{background:rgba(127,127,127,.1)}
+ol.opts{list-style:none;padding:0;margin:10px 0 0}
+ol.opts li{display:flex;gap:10px;padding:6px 8px;border-radius:7px;align-items:flex-start}
+ol.opts .l{font-weight:700;min-width:1.6em}
+ol.opts .t{flex:1}
+.ln[dir=ltr]{text-align:right}
+.practice ol.opts li{cursor:pointer;border:1px solid transparent}
+.practice ol.opts li:hover{border-color:var(--line)}
+.practice li.ok{background:rgba(31,138,76,.15);border-color:var(--ok)!important}
+.practice li.bad{background:rgba(192,57,43,.13);border-color:var(--bad)!important}
+.practice .done li{cursor:default}
+.src{color:var(--muted);font-size:12px;margin-top:8px;display:none}
+.done + .src,.reveal .src{display:block}
+.score{position:sticky;top:0;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:16px;font-weight:700;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.score button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.end{text-align:center;color:var(--muted);margin-top:30px}
+.key table{width:100%;margin-bottom:26px}
+.key td.n{font-weight:700}
+.key .note{color:var(--muted);font-size:12px}
+@media (max-width:600px){.page{padding:20px 16px 48px}.q{padding:12px}}
+@media print{pre{white-space:pre-wrap;word-break:break-all}:root{--bg:#fff;--card:#fff;--ink:#000}.page{max-width:none;padding:0}.q{border-color:#bbb}.score,.src{display:none!important}@page{margin:16mm 14mm}}
+</style></head><body class=""><div class="page">
+<header><h1>מבוא לאבטחת סייבר – מבחן תרגול</h1><div class="meta"><span>גרסה 2 מתוך 3</span><span>10 שאלות</span><span>יש לבחור את התשובה הנכונה ביותר</span></div>
+<div class="fields"><div>שם: <span></span></div><div>ת.ז: <span></span></div></div>
+</header>
+<section class="q"><div class="qh"><span>שאלה 1</span></div><div class="stem"><div class="ln" dir="rtl">איזו מבין הטענות הבאות אינה נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">תוקף בעל יכולות <bdi dir="ltr">eavesdropping</bdi> בין קורבן לשרת ה <bdi dir="ltr">DNS</bdi> שאליו פנה לא תמיד יצליח בהתקפת <bdi dir="ltr">DNS poisoning</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">הגדרה נכונה של <bdi dir="ltr">IDS</bdi> מונעת התקפות <bdi dir="ltr">DNS poisoning</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">תוקף בעל יכולות <bdi dir="ltr">MitM</bdi> בין קורבן לשרת ה <bdi dir="ltr">DNS</bdi> שאליו פנה אינו צריך לנחש את ה <bdi dir="ltr">transaction Id</bdi> כדי להצליח בהתקפת <bdi dir="ltr">DNS poisoning</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">פרדוקס יום ההולדת אינו עקרון ייעודי עבור התקפת הרעלת ה <bdi dir="ltr">DNS</bdi> של קמינסקי, והוא עקרון שעומד בפני עצמו ושימושי גם לדברים אחרים.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 2</span></div><div class="stem"><div class="ln" dir="rtl">השם המלא של אליס הוא אליס אליסוביץ׳. לאחרונה, אליס נרשמה לאתר אינטרנט מסוים בשמה המלא (כפי שהופיע במשפט הקודם), אך שמה לב לתופעה מוזרה. במקומות מסוימים, האתר מציג את שמה נכון:</div>
+<div class="ln" dir="rtl">אליס אליסוביץ׳</div>
+<div class="ln" dir="rtl">אך במקומות מסוימים אחרים שקשורים לאתר הזה, שמה מוצג בצורה שונה:</div>
+<div class="ln" dir="rtl">אליס אליסוביץ<bdi dir="ltr"><code>&amp;#39;</code></bdi></div>
+<div class="ln" dir="rtl">מהי הסיבה לכך?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">תופעת לוואי של מנגנון ה <bdi dir="ltr">anti CSRF token</bdi>.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">שימוש במנגנון ה <bdi dir="ltr">preload</bdi> ב <bdi dir="ltr">HSTS</bdi> בלי רישום באתר <bdi dir="ltr">https://hstspreload.org</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">שימוש במנגנון קידוד (<bdi dir="ltr">encoding</bdi>) על ידי האתר על מנת למנוע התקפות <bdi dir="ltr">injection</bdi>.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">השרת הגדיר <bdi dir="ltr">Content Security Policy</bdi> עבור מנגנון <bdi dir="ltr">OCSP</bdi>.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 3</span></div><div class="stem"><div class="ln" dir="rtl">מה מבין הבאים היא ההגדרה של תכונת ה <bdi dir="ltr">pre image resistance</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="ltr">It is hard to find messages m<sub>0</sub> ≠ m<sub>1</sub> s.t. h(m<sub>0</sub>) ≠ h(m<sub>1</sub>)</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="ltr">Given a random message m<sub>0</sub>, it is hard to find a message m<sub>1</sub> that is not equal to m<sub>0</sub> s.t. h(m<sub>0</sub>) = h(m<sub>1</sub>)</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="ltr">It is hard to find messages m<sub>0</sub> ≠ m<sub>1</sub> s.t. h(m<sub>0</sub>) = h(m<sub>1</sub>)</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="ltr">Given a digest d of a random message, it is hard to find a message m s.t. d = h(m)</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 4</span></div><div class="stem"><div class="ln" dir="rtl">מה ישיג התוקף בעזרת התקפה מלאה ומוצלחת של <bdi dir="ltr">ARP Poisoning</bdi> על אליס ובוב?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">יכולת זיוף חתימה דיגיטלית של אליס או בוב.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">גילוי המפתח הסימטרי שמשותף בין אליס ובוב.</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">יכולות <bdi dir="ltr">MITM</bdi> בין אליס לבוב.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">יכולות <bdi dir="ltr">CSRF</bdi>.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 5</span></div><div class="stem"><div class="ln" dir="rtl">איזה מהתרחישים הבאים ייחסמו על ידי מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">סקריפט זדוני שהוחדר לעמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> ושולח את פרטי ה<bdi dir="ltr">cookie</bdi> של הקורבן אל <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">משתמש גלש לאתר <bdi dir="ltr">foo.com</bdi> ובאתר זה ישנו סקריפט ששולח טופס אל הדומיין <bdi dir="ltr">bar.com</bdi> שאליו המשתמש מחובר (ולכן הדפדפן צירף את ה <bdi dir="ltr">cookie</bdi> של המשתמש לבקשה)</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">סקריפט שהגיע מ <bdi dir="ltr">foo.com</bdi> (זה ה <bdi dir="ltr">origin</bdi> של הסקריפט) מנסה לקרוא תוכן של תשובת <bdi dir="ltr">http</bdi> שמגיעה מ <bdi dir="ltr">bar.com</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">עמוד שהגיע מ <bdi dir="ltr">foo.com</bdi> מנסה לטעון תמונה מהדומיין <bdi dir="ltr">bar.com</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 6</span></div><div class="stem"><div class="ln" dir="rtl">איזו מבין הטענות הבאות אינה נכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">שימוש ב <bdi dir="ltr">x-frame-options</bdi> מיועד להגנה מפני <bdi dir="ltr">sql injection</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">TLS</bdi>, משתמשים ב <bdi dir="ltr">chain of trust</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">בקריפטוגרפיה, <bdi dir="ltr">MAC</bdi> המיושם נכון מספק אמינות המידע</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">בעיה גדולה ב <bdi dir="ltr">One Time Pad</bdi> היא העברת המפתחות</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 7</span></div><div class="stem"><div class="ln" dir="rtl">מהי הטענה הנכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">Dom based XSS</bdi> הקוד הפגיע (הקוד עם החולשה) מורץ בדפדפן</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi> מונע <bdi dir="ltr">Dom based XSS</bdi> אך לא מונע <bdi dir="ltr">Reflected XSS</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">Dom based XSS</bdi> הקוד הפגיע (הקוד עם החולשה) מורץ בשרת</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi> מונע <bdi dir="ltr">Reflected XSS</bdi> אך לא מונע <bdi dir="ltr">Dom based XSS</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 8</span></div><div class="stem"><div class="ln" dir="rtl">תכונת ה <bdi dir="ltr">second pre image resistance</bdi> מוגדרת כ:</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">בהינתן הודעה אקראית <bdi dir="ltr">m</bdi>, קשה למצוא הודעה <bdi dir="ltr">m’</bdi> ששונה מ <bdi dir="ltr">m</bdi>, כך ש <bdi dir="ltr">h(m) = h(m’)</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">בהינתן הודעה אקראית <bdi dir="ltr">m</bdi>, קשה למצוא הודעה <bdi dir="ltr">m’</bdi> ששונה מ <bdi dir="ltr">m</bdi>, כך ש <bdi dir="ltr">h(m)</bdi> שונה מ <bdi dir="ltr">h(m’)</bdi></div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">בהינתן <bdi dir="ltr">digest d</bdi> של הודעה אקראית, קשה למצוא הודעה <bdi dir="ltr">m</bdi> כך ש <bdi dir="ltr">h(m)=d</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">בהינתן <bdi dir="ltr">digest d</bdi> של הודעה אקראית, קשה למצוא <bdi dir="ltr">digest d’</bdi> כך ש <bdi dir="ltr">d</bdi> שונה מ <bdi dir="ltr">d’</bdi></div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 9</span></div><div class="stem"><div class="ln" dir="rtl">מה תפקידו של מנגנון <bdi dir="ltr">OCSP stapling</bdi>?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">לאפשר לשרת אינטרנט לשלוח ללקוח את הסטטוס המעודכן של התעודה של השרת (אם בוטלה או לא), בלי שהלקוח יצטרך לפנות בעצמו לשרת ה <bdi dir="ltr">OCSP</bdi>.</div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">לייתר את הצורך לבדוק את ה <bdi dir="ltr">chain of trust</bdi>.</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">מדובר במנגנון <bdi dir="ltr">challenge</bdi> הנועד לוודא ששרת אינטרנט שפנה ל <bdi dir="ltr">CA</bdi> בטענה לבעלים של דומיין מסויים הוא אכן הבעלים של הדומיין הזה.</div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">לאחסן רשימה של כל התעודות שה <bdi dir="ltr">CA</bdi> ביטל.</div></span></li>
+</ol>
+</section>
+<section class="q"><div class="qh"><span>שאלה 10</span></div><div class="stem"><div class="ln" dir="rtl">מהי הטענה הנכונה?</div></div><ol class="opts">
+<li><span class="l">א.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">Dom based XSS</bdi> הקוד הפגיע (הקוד עם החולשה) מורץ ב<bdi dir="ltr">database</bdi></div></span></li>
+<li><span class="l">ב.</span><span class="t"><div class="ln" dir="rtl">ב <bdi dir="ltr">Dom based XSS</bdi> הקוד הפגיע (הקוד עם החולשה) מורץ בשרת</div></span></li>
+<li><span class="l">ג.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi> מונע <bdi dir="ltr">Reflected XSS</bdi> אך לא מונע <bdi dir="ltr">Dom based XSS</bdi></div></span></li>
+<li><span class="l">ד.</span><span class="t"><div class="ln" dir="rtl">מנגנון ה <bdi dir="ltr">Same Origin Policy</bdi> לא מונע התקפות <bdi dir="ltr">CSRF</bdi> (כלומר, עדיין ייתכנו התקפות <bdi dir="ltr">CSRF</bdi>)</div></span></li>
+</ol>
+</section>
+<div class="end">— סוף המבחן —</div></div>
+</body></html>

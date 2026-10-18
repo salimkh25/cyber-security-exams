@@ -1,0 +1,79 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מפתח תשובות – מבוא לאבטחת סייבר – מבחן תרגול</title><style>
+:root{--ink:#1d1d1f;--muted:#6e6e73;--line:#d9d9de;--accent:#2f5bd3;--ok:#1f8a4c;--bad:#c0392b;--bg:#fff;--card:#fafafa}
+@media (prefers-color-scheme:dark){:root:not(.print){--ink:#ececf0;--muted:#a1a1aa;--line:#3a3a40;--accent:#7aa2ff;--ok:#4cc38a;--bad:#ff6b5e;--bg:#141416;--card:#1c1c20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Arial Hebrew","Rubik","Segoe UI",Arial,sans-serif}
+.page{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
+h1{font-size:24px;margin:0 0 4px}
+.meta{color:var(--muted);font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+.fields{display:flex;gap:28px;margin-top:14px;font-size:14px;flex-wrap:wrap}
+.fields span{border-bottom:1px solid var(--muted);min-width:150px;display:inline-block}
+.q{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.qh{font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px}
+.qh small{font-weight:400;color:var(--muted);font-size:12px}
+.stem .ln{margin:2px 0}
+code{font:14px Menlo,Consolas,monospace;background:rgba(127,127,127,.12);padding:1px 4px;border-radius:4px}
+pre{direction:ltr;text-align:left;background:rgba(127,127,127,.12);border-radius:6px;padding:10px 12px;font:13px/1.5 Menlo,Consolas,monospace;overflow-x:auto;white-space:pre}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;font-size:14px}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:center}
+th{background:rgba(127,127,127,.1)}
+ol.opts{list-style:none;padding:0;margin:10px 0 0}
+ol.opts li{display:flex;gap:10px;padding:6px 8px;border-radius:7px;align-items:flex-start}
+ol.opts .l{font-weight:700;min-width:1.6em}
+ol.opts .t{flex:1}
+.ln[dir=ltr]{text-align:right}
+.practice ol.opts li{cursor:pointer;border:1px solid transparent}
+.practice ol.opts li:hover{border-color:var(--line)}
+.practice li.ok{background:rgba(31,138,76,.15);border-color:var(--ok)!important}
+.practice li.bad{background:rgba(192,57,43,.13);border-color:var(--bad)!important}
+.practice .done li{cursor:default}
+.src{color:var(--muted);font-size:12px;margin-top:8px;display:none}
+.done + .src,.reveal .src{display:block}
+.score{position:sticky;top:0;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:16px;font-weight:700;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.score button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.end{text-align:center;color:var(--muted);margin-top:30px}
+.key table{width:100%;margin-bottom:26px}
+.key td.n{font-weight:700}
+.key .note{color:var(--muted);font-size:12px}
+@media (max-width:600px){.page{padding:20px 16px 48px}.q{padding:12px}}
+@media print{pre{white-space:pre-wrap;word-break:break-all}:root{--bg:#fff;--card:#fff;--ink:#000}.page{max-width:none;padding:0}.q{border-color:#bbb}.score,.src{display:none!important}@page{margin:16mm 14mm}}
+</style></head><body><div class="page key"><header><h1>מפתח תשובות</h1><div class="meta"><span>מבוא לאבטחת סייבר – מבחן תרגול</span><span>3 גרסאות</span></div></header>
+<h2>גרסה 1</h2><div class="tbl"><table><tr><th>שאלה</th><th>תשובה</th><th>מזהה במאגר</th><th>מקור</th></tr>
+<tr><td class="n">1</td><td class="n">ג</td><td>Q147</td><td>30/11/2025, שאלה 5</td></tr>
+<tr><td class="n">2</td><td class="n">ד</td><td>Q141</td><td>02/11/2025, שאלה 9</td></tr>
+<tr><td class="n">3</td><td class="n">ג</td><td>Q126</td><td>05/10/2025, שאלה 4</td></tr>
+<tr><td class="n">4</td><td class="n">א</td><td>Q151</td><td>30/11/2025, שאלה 9</td></tr>
+<tr><td class="n">5</td><td class="n">ב</td><td>Q113</td><td>21/08/2025, שאלה 1 (+1)</td></tr>
+<tr><td class="n">6</td><td class="n">ג</td><td>Q062</td><td>31/05/2024, שאלה 6 (+1)</td></tr>
+<tr><td class="n">7</td><td class="n">ב</td><td>Q001</td><td>07/10/2022, שאלה 1 (+1)</td></tr>
+<tr><td class="n">8</td><td class="n">ג</td><td>Q158</td><td>12/07/2026, שאלה 6</td></tr>
+<tr><td class="n">9</td><td class="n">א</td><td>Q021</td><td>06/11/2022, שאלה 9 (+1)<div class="note">התקבל גם סעיף ב</div></td></tr>
+<tr><td class="n">10</td><td class="n">ד</td><td>Q029</td><td>04/12/2022, שאלה 5 (+2)</td></tr>
+</table></div>
+<h2>גרסה 2</h2><div class="tbl"><table><tr><th>שאלה</th><th>תשובה</th><th>מזהה במאגר</th><th>מקור</th></tr>
+<tr><td class="n">1</td><td class="n">ב</td><td>Q030</td><td>04/12/2022, שאלה 6 (+2)</td></tr>
+<tr><td class="n">2</td><td class="n">ג</td><td>Q109</td><td>21/07/2025, שאלה 7 (+2)</td></tr>
+<tr><td class="n">3</td><td class="n">ד</td><td>Q130</td><td>05/10/2025, שאלה 8</td></tr>
+<tr><td class="n">4</td><td class="n">ג</td><td>Q154</td><td>12/07/2026, שאלה 2</td></tr>
+<tr><td class="n">5</td><td class="n">ג</td><td>Q126</td><td>05/10/2025, שאלה 4</td></tr>
+<tr><td class="n">6</td><td class="n">א</td><td>Q102</td><td>24/11/2024, שאלה 10</td></tr>
+<tr><td class="n">7</td><td class="n">א</td><td>Q135</td><td>02/11/2025, שאלה 3</td></tr>
+<tr><td class="n">8</td><td class="n">א</td><td>Q067</td><td>04/07/2024, שאלה 1</td></tr>
+<tr><td class="n">9</td><td class="n">א</td><td>Q108</td><td>21/07/2025, שאלה 6 (+2)</td></tr>
+<tr><td class="n">10</td><td class="n">ד</td><td>Q145</td><td>30/11/2025, שאלה 3</td></tr>
+</table></div>
+<h2>גרסה 3</h2><div class="tbl"><table><tr><th>שאלה</th><th>תשובה</th><th>מזהה במאגר</th><th>מקור</th></tr>
+<tr><td class="n">1</td><td class="n">ב</td><td>Q153</td><td>12/07/2026, שאלה 1</td></tr>
+<tr><td class="n">2</td><td class="n">א</td><td>Q118</td><td>21/08/2025, שאלה 6 (+1)</td></tr>
+<tr><td class="n">3</td><td class="n">ד</td><td>Q134</td><td>02/11/2025, שאלה 2</td></tr>
+<tr><td class="n">4</td><td class="n">ג</td><td>Q126</td><td>05/10/2025, שאלה 4</td></tr>
+<tr><td class="n">5</td><td class="n">ג</td><td>Q093</td><td>20/10/2024, שאלה 7</td></tr>
+<tr><td class="n">6</td><td class="n">ב</td><td>Q052</td><td>08/08/2023, שאלה 6 (+1)</td></tr>
+<tr><td class="n">7</td><td class="n">א</td><td>Q067</td><td>04/07/2024, שאלה 1</td></tr>
+<tr><td class="n">8</td><td class="n">ב</td><td>Q125</td><td>05/10/2025, שאלה 3</td></tr>
+<tr><td class="n">9</td><td class="n">ד</td><td>Q120</td><td>21/08/2025, שאלה 8 (+1)</td></tr>
+<tr><td class="n">10</td><td class="n">ד</td><td>Q131</td><td>05/10/2025, שאלה 9</td></tr>
+</table></div>
+</div></body></html>

@@ -1,0 +1,732 @@
+<title>מבחני סייבר</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Suez+One&display=swap">
+<style>
+/* Layout: answer-sheet metaphor — question on the main column, a "דף קידוד" bubble grid beside it; tabs on top. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --surface-2:#f8f9fc; --ink:#141a26; --muted:#5b6474; --faint:#8a93a3;
+  --line:#dde2ea; --accent:#2b4fd8; --accent-ink:#ffffff; --accent-soft:#e7ecfd;
+  --good:#1e8a4c; --good-soft:#e3f4ea; --bad:#c4372c; --bad-soft:#fbe8e6; --warn:#a96a12;
+  --bar:#2a78d6; --code:#eef1f6;
+  --f-body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",Arial,sans-serif;
+  --f-display:"Suez One","IBM Plex Sans Hebrew",Georgia,serif;
+  --f-mono:"IBM Plex Mono",Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1218; --surface:#161b24; --surface-2:#1b212c; --ink:#e7ebf2; --muted:#9ba5b6; --faint:#6f7a8c;
+  --line:#2a313d; --accent:#7f9bff; --accent-ink:#0e1218; --accent-soft:#1e274a;
+  --good:#47c17e; --good-soft:#15301f; --bad:#ff7466; --bad-soft:#3a1a17; --warn:#e2a548;
+  --bar:#3987e5; --code:#1f2632; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1218; --surface:#161b24; --surface-2:#1b212c; --ink:#e7ebf2; --muted:#9ba5b6; --faint:#6f7a8c;
+  --line:#2a313d; --accent:#7f9bff; --accent-ink:#0e1218; --accent-soft:#1e274a;
+  --good:#47c17e; --good-soft:#15301f; --bad:#ff7466; --bad-soft:#3a1a17; --warn:#e2a548;
+  --bar:#3987e5; --code:#1f2632; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.65 var(--f-body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-size:20px;letter-spacing:.2px;white-space:nowrap}
+.brand small{font-family:var(--f-body);font-size:12px;color:var(--muted);margin-inline-start:8px;font-weight:500}
+nav.tabs{display:flex;gap:4px;margin-inline-start:auto;align-items:center}
+nav.tabs button{border:0;background:none;padding:7px 14px;border-radius:8px;color:var(--muted);font-weight:600;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent)}
+nav.tabs a.tab-link{border:0;background:none;padding:7px 12px;border-radius:8px;color:var(--muted);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;font-size:14px;transition:background .15s,color .15s}
+nav.tabs a.tab-link:hover{background:var(--surface-2);color:var(--ink)}
+main{padding-block:24px 64px}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-size:20px} h3{font-size:16px}
+.sub{color:var(--muted);margin:4px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stack{display:grid;gap:18px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600}
+.btn:hover{border-color:var(--faint)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:transparent;background:none;color:var(--muted)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px;display:inline-flex;gap:6px;align-items:center}
+.chip .n{color:var(--faint);font-family:var(--f-mono);font-size:12px}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"] .n{color:var(--accent)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+label.field{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
+input[type=number],input[type=text],input[type=search],select{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0}
+input[type=number]{width:90px}
+.check{display:flex;gap:8px;align-items:center;cursor:pointer}
+.check input{accent-color:var(--accent);width:16px;height:16px}
+
+/* setup */
+.setup{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
+.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mode{border:1.5px solid var(--line);border-radius:var(--r);padding:14px;background:var(--surface);cursor:pointer;text-align:start;display:grid;gap:4px}
+.mode b{font-size:15px}
+.mode span{font-size:13px;color:var(--muted);line-height:1.5}
+.mode[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.mode[aria-checked="true"] b{color:var(--accent)}
+.group{display:grid;gap:8px}
+.group .chips{display:flex;flex-wrap:wrap;gap:6px}
+.summary{position:sticky;top:76px;display:grid;gap:14px}
+.big{font-family:var(--f-display);font-size:44px;line-height:1}
+.summary .big small{font-family:var(--f-body);font-size:14px;color:var(--muted);margin-inline-start:6px}
+
+/* exam */
+.exam{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px;align-items:start}
+.exambar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 53px);z-index:4;background:var(--bg);padding-block:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:16px}
+.timer{font-family:var(--f-mono);font-size:18px;font-weight:500;padding:3px 10px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.timer.low{color:var(--bad);border-color:var(--bad)}
+.progress{flex:1;min-width:120px;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .2s}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;font-size:17px}
+.stem{font-size:16px;line-height:1.75}
+.stem .ln,.opt .ln{margin:1px 0}
+.ln[dir=ltr]{text-align:right}
+pre{direction:ltr;text-align:left;background:var(--code);border-radius:8px;padding:10px 12px;font:13px/1.55 var(--f-mono);overflow-x:auto;white-space:pre;margin:8px 0}
+code{font:13.5px var(--f-mono);background:var(--code);padding:1px 5px;border-radius:4px}
+.tbl{overflow-x:auto;margin:8px 0}
+.tbl table{border-collapse:collapse;font-size:13.5px}
+.tbl td,.tbl th{border:1px solid var(--line);padding:4px 9px;text-align:center}
+.tbl th{background:var(--surface-2)}
+.opts{display:grid;gap:8px;margin-top:16px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:start;width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:9px;padding:10px 12px;cursor:pointer;line-height:1.6}
+.opt:hover{border-color:var(--faint)}
+.opt .t{flex:1;min-width:0}
+.bub{flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--faint);display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--muted)}
+.opt[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.opt[aria-checked="true"] .bub{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.opt.ok{border-color:var(--good);background:var(--good-soft)}
+.opt.ok .bub{background:var(--good);border-color:var(--good);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opt.bad .bub{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt[disabled]{cursor:default}
+.mark{font-size:12px;font-weight:700;margin-inline-start:auto;white-space:nowrap}
+.mark.okm{color:var(--good)} .mark.badm{color:var(--bad)}
+.qnav{display:flex;gap:10px;justify-content:space-between;margin-top:16px;flex-wrap:wrap}
+.feedback{margin-top:14px;padding:10px 12px;border-radius:8px;font-size:14px}
+.feedback.ok{background:var(--good-soft);color:var(--good)}
+.feedback.bad{background:var(--bad-soft);color:var(--bad)}
+.meta-line{color:var(--muted);font-size:12.5px;margin-top:10px}
+
+/* answer sheet */
+.sheet{position:sticky;top:130px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;max-height:calc(100vh - 150px);overflow:auto}
+.sheet h3{font-size:14px;margin-bottom:8px;display:flex;justify-content:space-between}
+.srow{display:grid;grid-template-columns:30px repeat(4,22px) 14px;gap:6px;align-items:center;padding:3px 4px;border-radius:6px}
+.srow.cur{background:var(--accent-soft)}
+.srow .sn{font-family:var(--f-mono);font-size:12px;color:var(--muted);cursor:pointer;background:none;border:0;padding:0;text-align:start}
+.sb{width:22px;height:22px;border-radius:50%;border:1.3px solid var(--faint);background:none;cursor:pointer;font-size:10px;color:var(--faint);padding:0;display:grid;place-items:center}
+.sb.on{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.sb.ok{background:var(--good);border-color:var(--good);color:#fff}
+.sb.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.flag{font-size:11px;color:var(--warn)}
+.legend{font-size:12px;color:var(--muted);margin-top:8px;display:grid;gap:2px}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(10,14,22,.45);display:grid;place-items:center;z-index:20;padding:16px}
+.modal .panel{max-width:420px;width:100%;display:grid;gap:14px}
+
+/* results */
+.result-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center}
+.score{font-family:var(--f-display);font-size:72px;line-height:1}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.kpi .v{font-family:var(--f-display);font-size:28px;line-height:1.1}
+.kpi .k{font-size:13px;color:var(--muted)}
+.review-item{border-top:1px solid var(--line);padding-block:16px}
+.review-item .opt{cursor:default}
+
+/* charts */
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(120px,210px) minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:13.5px}
+.bar .track{height:14px;position:relative}
+.bar .fill{position:absolute;inset-block:0;right:0;background:var(--bar);border-radius:4px 0 0 4px;min-width:2px}
+.bar .val{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);text-align:left}
+.heat{border-collapse:separate;border-spacing:2px;font-size:12.5px;min-width:520px;width:100%}
+.heat th{font-weight:600;color:var(--muted);padding:4px 6px;text-align:center}
+.heat th.rowh{text-align:start;color:var(--ink);font-weight:500;white-space:nowrap}
+.heat td{width:72px;height:32px;text-align:center;border-radius:4px;font-family:var(--f-mono)}
+.tip{position:fixed;z-index:30;background:var(--ink);color:var(--surface);font-size:12.5px;padding:6px 9px;border-radius:6px;pointer-events:none;max-width:260px;line-height:1.45}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.list{display:grid;gap:10px;align-content:start}
+.li{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--surface);font-size:14px;display:grid;gap:4px}
+.li .m{font-size:12.5px;color:var(--muted)}
+details summary{cursor:pointer;font-weight:600}
+.terms{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.terms span{font-family:var(--f-mono);font-size:11.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:0 5px}
+
+/* bank */
+.bankq{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.bankq .opt{padding:6px 10px;border-width:1px}
+.bankq .opts{gap:5px;margin-top:10px}
+
+/* print view */
+.printdoc .ver{break-before:page}
+.printdoc .ver:first-child{break-before:auto}
+.pq{break-inside:avoid;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:12px;background:var(--surface)}
+.pq ol{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:4px}
+.pq li{display:flex;gap:10px}
+.keytbl{border-collapse:collapse;font-size:13px;width:100%}
+.keytbl td,.keytbl th{border:1px solid var(--line);padding:4px 8px;text-align:center}
+.empty{color:var(--muted);text-align:center;padding:40px 10px}
+
+@media (max-width:860px){
+  .setup,.exam{grid-template-columns:minmax(0,1fr)}
+  .summary,.sheet{position:static;max-height:none}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .modes{grid-template-columns:minmax(0,1fr)}
+  .bar{grid-template-columns:minmax(0,1fr) 54px}
+  .bar .lbl{grid-column:1/-1}
+  .result-head{grid-template-columns:minmax(0,1fr)}
+  nav.tabs{margin-inline-start:0;width:100%}
+  .exambar{position:static}
+  .qcard{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  body{background:#fff;color:#000}
+  body::before,.top,.noprint{display:none!important}
+  main{padding:0}
+  .pq{border-color:#999;background:#fff}
+  @page{margin:14mm}
+}
+</style>
+
+<header class="top"><div class="wrap">
+  <div class="brand">מבחני סייבר<small>מבוא לאבטחת סייבר · 689156</small></div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="setup" aria-selected="true">מבחן חדש</button>
+    <button role="tab" data-tab="bank" aria-selected="false">מאגר השאלות</button>
+    <button role="tab" data-tab="stats" aria-selected="false">סטטיסטיקה</button>
+    <a href="videos.html" class="tab-link" title="ספריית סרטונים להרצאות">📺 סרטונים</a>
+    <a href="summary.pdf" class="tab-link" target="_blank" rel="noopener" title="חוברת סיכום קורס">📄 סיכום קורס</a>
+  </nav>
+</div></header>
+<main class="wrap" id="app"></main>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const BANK = /*__BANK__*/null;
+const PRINT_ENABLED = /*__PRINT__*/false;
+const QS = BANK.questions.filter(q => !q.exclude);
+const TOPICS = Object.keys(BANK.meta.topics);
+const LET = 'אבגדהו';
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const yearsOf = q => [...new Set(q.sources.map(s => s.date ? s.date.slice(6) : null).filter(Boolean))];
+const YEARS = [...new Set(QS.flatMap(yearsOf))].sort();
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+/* ---------- rich text (same rules as make_exam.py) ---------- */
+const HEB = /[֐-׿]/;
+function inline(text, rtl){
+  if (text.includes('`')) return text.split('`').map((p,i) => i%2 ? `<bdi dir="ltr"><code>${esc(p)}</code></bdi>` : inline(p, rtl)).join('');
+  const PH = {'<sub>':'\x01','</sub>':'\x02','<sup>':'\x03','</sup>':'\x04'};
+  for (const [t,p] of Object.entries(PH)) text = text.split(t).join(p);
+  const fin = s => { s = esc(s); for (const [t,p] of Object.entries(PH)) s = s.split(p).join(t); return s; };
+  if (!rtl) return fin(text);
+  let out = '', pos = 0; const re = /[A-Za-z0-9\x01\x03][^֐-׿]*/g; let m;
+  while ((m = re.exec(text))){
+    let run = m[0];
+    const cnt = (s,c) => s.split(c).length-1;
+    while (run && (' .,:;?!(-–'.includes(run.at(-1)) || (')]'.includes(run.at(-1)) && cnt(run,'(')+cnt(run,'[') < cnt(run,')')+cnt(run,']')))) run = run.slice(0,-1);
+    out += fin(text.slice(pos, m.index)) + `<bdi dir="ltr">${fin(run)}</bdi>`;
+    pos = m.index + run.length; re.lastIndex = pos > m.index ? pos : m.index + 1;
+  }
+  return out + fin(text.slice(pos));
+}
+function rich(text){
+  const L = text.split('\n'); let out = '', i = 0;
+  const dir = s => HEB.test(s) ? 'rtl' : 'ltr';
+  while (i < L.length){
+    const l = L[i];
+    if (l.trim().startsWith('```')){ const c=[]; i++; while(i<L.length && !L[i].trim().startsWith('```')) c.push(L[i++]); i++; out += `<pre>${esc(c.join('\n'))}</pre>`; continue; }
+    if (l.trim().startsWith('|')){
+      const rows=[]; while(i<L.length && L[i].trim().startsWith('|')) rows.push(L[i++].trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim()));
+      out += '<div class="tbl"><table>' + rows.map((r,ri)=>'<tr>'+r.map(c=>`<${ri?'td':'th'} dir="${dir(c)}">${inline(c,dir(c)==='rtl')}</${ri?'td':'th'}>`).join('')+'</tr>').join('') + '</table></div>';
+      continue;
+    }
+    if (l.trim()) out += `<div class="ln" dir="${dir(l)}">${inline(l, dir(l)==='rtl')}</div>`;
+    i++;
+  }
+  return out;
+}
+
+/* ---------- seeded random ---------- */
+function rng(seed){ let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function shuffle(arr, r){ const a = arr.slice(); for (let i=a.length-1;i>0;i--){ const j = Math.floor(r()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; }
+function srcLabel(q){ const s = q.sources.find(s=>s.date) || q.sources[0]; return `${s.date || 'מבחן לדוגמא'}, שאלה ${s.num}` + (q.sources.length>1 ? ` · הופיעה ב-${q.sources.length} קבצים` : ''); }
+
+/* ---------- state ---------- */
+const S = {
+  tab: 'setup',
+  cfg: Object.assign({mode:'digital', n:10, topics:[], years:[], shuffle:true, skipNoted:false, wrongOnly:false, minutes:null, versions:2, verMode:'random', seed:''}, store.get('cfg', {})),
+  exam: null, result: null, print: null,
+  bank: {q:'', topic:'', year:'', show:false}
+};
+
+function pool(){
+  const c = S.cfg; const hist = store.get('history', []);
+  const wrong = new Set(); const right = new Set();
+  if (c.wrongOnly) for (const h of hist) for (const a of h.answers){ (a.ok ? right : wrong).add(a.id); }
+  return QS.filter(q =>
+    (!c.topics.length || c.topics.includes(q.topic)) &&
+    (!c.years.length || yearsOf(q).some(y => c.years.includes(y))) &&
+    (!c.skipNoted || !q.note) &&
+    (!c.wrongOnly || wrong.has(q.id)));
+}
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => go(b.dataset.tab));
+function go(tab){
+  if (S.exam && !S.exam.done && tab !== 'exam'){ confirmModal('לצאת מהמבחן? התשובות לא יישמרו.', 'צא מהמבחן', () => { S.exam = null; go(tab); }); return; }
+  S.tab = tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === tab || (tab==='exam'||tab==='result'||tab==='print') && b.dataset.tab==='setup'));
+  render(); window.scrollTo(0,0);
+}
+function render(){
+  const app = $('#app');
+  ({setup:renderSetup, exam:renderExam, result:renderResult, print:renderPrint, bank:renderBank, stats:renderStats})[S.tab](app);
+}
+
+/* ---------- setup ---------- */
+function renderSetup(app){
+  const c = S.cfg, P = pool(), n = Math.min(c.n, P.length);
+  const tc = t => QS.filter(q => q.topic === t).length;
+  const yc = y => QS.filter(q => yearsOf(q).includes(y)).length;
+  const histN = store.get('history', []).length;
+  const mins = c.minutes ?? Math.round(n * 8);
+  app.innerHTML = `
+  <div class="setup">
+    <div class="stack">
+      <div><h2>מבחן חדש</h2><p class="sub">בוחרים שאלות מתוך ${QS.length} השאלות שנאספו מ-${countExams()} מבחנים, מערבבים, ומתחילים.</p></div>
+      <div class="modes" role="radiogroup" aria-label="סוג מבחן">
+        ${[['digital','מבחן דיגיטלי','עונים על הכל, מגישים, ומקבלים ציון ופירוט טעויות. עם טיימר.'],
+           ['practice','תרגול','משוב מיידי אחרי כל תשובה, עם מקור השאלה.'],
+           ['print','גרסאות להדפסה','כמה גרסאות מעורבבות ומפתח תשובות.']]
+          .map(([k,t,d]) => `<button class="mode" role="radio" aria-checked="${c.mode===k}" data-mode="${k}"><b>${t}</b><span>${d}</span></button>`).join('')}
+      </div>
+      <div class="panel stack">
+        <div class="row" style="gap:20px;align-items:end">
+          <label class="field">מספר שאלות<input type="number" id="f-n" min="1" max="${QS.length}" value="${c.n}"></label>
+          <div class="row" style="gap:6px">${[10,15,20,30].map(v=>`<button class="chip" data-n="${v}" aria-pressed="${c.n===v}">${v}</button>`).join('')}<button class="chip" data-n="${QS.length}" aria-pressed="${c.n===QS.length}">כל המאגר</button></div>
+        </div>
+        <div class="group"><div class="eyebrow">נושאים <span style="font-weight:400">(בלי בחירה = הכל)</span></div>
+          <div class="chips">${TOPICS.map(t=>`<button class="chip" data-topic="${esc(t)}" aria-pressed="${c.topics.includes(t)}">${esc(t)} <span class="n">${tc(t)}</span></button>`).join('')}</div></div>
+        <div class="group"><div class="eyebrow">שנות מבחן</div>
+          <div class="chips">${YEARS.map(y=>`<button class="chip" data-year="${y}" aria-pressed="${c.years.includes(y)}">${y} <span class="n">${yc(y)}</span></button>`).join('')}</div></div>
+        <div class="row" style="gap:22px">
+          <label class="check"><input type="checkbox" id="f-shuffle" ${c.shuffle?'checked':''}>ערבוב סדר התשובות</label>
+          <label class="check"><input type="checkbox" id="f-noted" ${c.skipNoted?'checked':''}>בלי שאלות שבוטלו/קיבלו כמה תשובות</label>
+          <label class="check" ${histN?'':'title="יופעל אחרי מבחן ראשון"'}><input type="checkbox" id="f-wrong" ${c.wrongOnly?'checked':''} ${histN?'':'disabled'}>רק שאלות שטעיתי בהן</label>
+        </div>
+        ${c.mode==='digital' ? `<div class="row" style="align-items:end"><label class="field">זמן (דקות, 0 = בלי טיימר)<input type="number" id="f-min" min="0" max="600" value="${mins}"></label><span class="sub" style="font-size:13px">במבחן האמיתי: 10 שאלות בשעה ועשרים, כלומר 8 דקות לשאלה</span></div>` : ''}
+        ${c.mode==='print' ? `<div class="row" style="gap:20px;align-items:end">
+          <label class="field">מספר גרסאות<input type="number" id="f-ver" min="1" max="20" value="${c.versions}"></label>
+          <label class="field">בחירת שאלות לגרסאות<select id="f-vmode">
+            <option value="random" ${c.verMode==='random'?'selected':''}>הגרלה נפרדת לכל גרסה</option>
+            <option value="same" ${c.verMode==='same'?'selected':''}>אותן שאלות, סדר שונה</option>
+            <option value="norepeat" ${c.verMode==='norepeat'?'selected':''}>בלי חזרה בין גרסאות</option></select></label></div>` : ''}
+        <label class="field" style="max-width:260px">קוד מבחן (רשות – אותו קוד = אותו מבחן)<input type="text" id="f-seed" inputmode="numeric" placeholder="יוגרל אוטומטית" value="${esc(c.seed)}"></label>
+      </div>
+    </div>
+    <aside class="summary">
+      <div class="panel stack" style="gap:10px">
+        <div class="eyebrow">שאלות זמינות לפי הבחירה</div>
+        <div class="big mono">${P.length}<small>שאלות</small></div>
+        <div class="sub" style="margin:0">${c.mode==='print' ? `${c.versions} גרסאות × ${n} שאלות` : `במבחן: ${n} שאלות` + (c.mode==='digital' && mins ? ` · ${mins} דקות` : '')}</div>
+        ${c.mode==='print' && c.verMode==='norepeat' && n*c.versions > P.length ? `<div style="color:var(--bad);font-size:13px">אין מספיק שאלות לגרסאות בלי חזרה (צריך ${n*c.versions}).</div>` : ''}
+        <button class="btn primary" id="start" ${!P.length || (c.mode==='print' && c.verMode==='norepeat' && n*c.versions > P.length) ? 'disabled':''}>${c.mode==='print' ? 'צור גרסאות' : 'התחל'}</button>
+      </div>
+      ${historyMini()}
+    </aside>
+  </div>`;
+  const save = () => { store.set('cfg', S.cfg); renderSetup(app); };
+  app.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { c.mode = b.dataset.mode; save(); });
+  app.querySelectorAll('[data-n]').forEach(b => b.onclick = () => { c.n = +b.dataset.n; c.minutes = null; save(); });
+  app.querySelectorAll('[data-topic]').forEach(b => b.onclick = () => { const t=b.dataset.topic; c.topics = c.topics.includes(t) ? c.topics.filter(x=>x!==t) : [...c.topics, t]; save(); });
+  app.querySelectorAll('[data-year]').forEach(b => b.onclick = () => { const y=b.dataset.year; c.years = c.years.includes(y) ? c.years.filter(x=>x!==y) : [...c.years, y]; save(); });
+  $('#f-n').onchange = e => { c.n = Math.max(1, Math.min(QS.length, +e.target.value||10)); c.minutes = null; save(); };
+  $('#f-shuffle').onchange = e => { c.shuffle = e.target.checked; save(); };
+  $('#f-noted').onchange = e => { c.skipNoted = e.target.checked; save(); };
+  $('#f-wrong').onchange = e => { c.wrongOnly = e.target.checked; save(); };
+  if ($('#f-min')) $('#f-min').onchange = e => { c.minutes = Math.max(0, +e.target.value||0); save(); };
+  if ($('#f-ver')) $('#f-ver').onchange = e => { c.versions = Math.max(1, Math.min(20, +e.target.value||1)); save(); };
+  if ($('#f-vmode')) $('#f-vmode').onchange = e => { c.verMode = e.target.value; save(); };
+  $('#f-seed').onchange = e => { c.seed = e.target.value.replace(/\D/g,'').slice(0,9); store.set('cfg', c); };
+  $('#start').onclick = start;
+  bindHistoryMini(app);
+}
+
+function makeItems(qs, r){
+  return qs.map(q => ({ q, order: (S.cfg.shuffle && !q.fixed_order) ? shuffle(q.options.map((_,i)=>i), r) : q.options.map((_,i)=>i), ans: null, flag: false }));
+}
+function start(ids){
+  const c = S.cfg;
+  const seed = c.seed ? +c.seed : Math.floor(Math.random()*900000)+100000;
+  const r = rng(seed);
+  const P = Array.isArray(ids) ? QS.filter(q => ids.includes(q.id)) : pool();
+  const n = Array.isArray(ids) ? P.length : Math.min(c.n, P.length);
+  if (c.mode === 'print' && !Array.isArray(ids)){
+    const versions = []; let remaining = P.slice(); const base = shuffle(P, r).slice(0, n);
+    for (let v=0; v<c.versions; v++){
+      let chosen;
+      if (c.verMode==='same') chosen = shuffle(base, r);
+      else if (c.verMode==='norepeat'){ chosen = shuffle(remaining, r).slice(0,n); remaining = remaining.filter(q => !chosen.includes(q)); }
+      else chosen = shuffle(P, r).slice(0, n);
+      versions.push(makeItems(chosen, r));
+    }
+    S.print = {seed, versions}; go('print'); return;
+  }
+  const mode = Array.isArray(ids) ? 'digital' : c.mode;
+  const minutes = mode!=='digital' ? 0 : Array.isArray(ids) ? Math.round(n*8) : (c.minutes ?? Math.round(n*8));
+  S.exam = {seed, mode, items: makeItems(shuffle(P, r).slice(0, n), r), cur: 0, start: Date.now(), limit: minutes*60, done: false};
+  go('exam'); startTimer();
+}
+
+/* ---------- exam ---------- */
+let timerId = null;
+function startTimer(){
+  clearInterval(timerId);
+  timerId = setInterval(() => {
+    const E = S.exam; if (!E || E.done){ clearInterval(timerId); return; }
+    const el = $('#timer'); if (!el) return;
+    const t = timerText(E); el.textContent = t.text; el.classList.toggle('low', t.low);
+    if (E.limit && (Date.now()-E.start)/1000 >= E.limit) submit(true);
+  }, 1000);
+}
+function timerText(E){
+  const el = Math.floor((Date.now()-E.start)/1000);
+  const sec = E.limit ? Math.max(0, E.limit - el) : el;
+  const f = s => `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+  return {text: (E.limit ? '' : '⏱ ') + f(sec), low: E.limit && sec < 300};
+}
+function renderExam(app){
+  const E = S.exam; if (!E){ go('setup'); return; }
+  const it = E.items[E.cur], q = it.q, practice = E.mode === 'practice';
+  const answered = E.items.filter(x => x.ans !== null).length;
+  const right = E.items.filter(x => x.ans !== null && x.order[x.ans] === 0).length;
+  const locked = practice && it.ans !== null;
+  app.innerHTML = `
+  <div class="exambar">
+    <b>${practice ? 'תרגול' : 'מבחן דיגיטלי'}</b><span class="tag mono">קוד ${E.seed}</span>
+    <span class="timer" id="timer">${timerText(E).text}</span>
+    <div class="progress" aria-hidden="true"><i style="width:${answered/E.items.length*100}%"></i></div>
+    <span class="mono" style="font-size:13px">${answered}/${E.items.length}${practice ? ` · ✓ ${right}` : ''}</span>
+    <button class="btn primary" id="submit">${practice ? 'סיים תרגול' : 'הגש מבחן'}</button>
+  </div>
+  <div class="exam">
+    <div>
+      <article class="qcard">
+        <div class="qhead"><span class="qnum">שאלה ${E.cur+1} <span style="color:var(--faint);font-weight:400">מתוך ${E.items.length}</span></span>
+          <div class="row" style="gap:8px">${practice ? `<span class="tag">${esc(q.topic)}</span>` : ''}
+          <button class="btn ghost" id="flag" aria-pressed="${it.flag}" style="padding:4px 8px;font-size:13px;color:${it.flag?'var(--warn)':'var(--muted)'}">${it.flag ? '⚑ מסומנת לחזרה' : '⚐ סמן לחזרה'}</button></div></div>
+        <div class="stem">${rich(q.stem)}</div>
+        <div class="opts" role="radiogroup">
+          ${it.order.map((oi,j) => {
+            let cls = '', mark = '';
+            if (locked){ if (oi===0){cls='ok';mark='<span class="mark okm">✓ נכונה</span>';} else if (j===it.ans){cls='bad';mark='<span class="mark badm">✗ הבחירה שלך</span>';} }
+            return `<button class="opt ${cls}" role="radio" aria-checked="${it.ans===j && !locked}" data-j="${j}" ${locked?'disabled':''}><span class="bub">${LET[j]}</span><span class="t">${rich(q.options[oi])}</span>${mark}</button>`; }).join('')}
+        </div>
+        ${locked ? `<div class="feedback ${it.order[it.ans]===0?'ok':'bad'}">${it.order[it.ans]===0 ? '✓ נכון.' : `✗ לא נכון. התשובה הנכונה: ${LET[it.order.indexOf(0)]}.`}</div>
+          <div class="meta-line">מקור: ${esc(srcLabel(q))}${q.note ? ' · ' + esc(q.note) : ''}</div>` : ''}
+        <div class="qnav">
+          <button class="btn" id="prev" ${E.cur===0?'disabled':''}>→ הקודמת</button>
+          ${E.cur < E.items.length-1 ? `<button class="btn ${locked?'primary':''}" id="next">הבאה ←</button>` : `<button class="btn primary" id="submit2">${practice?'סיים תרגול':'הגש מבחן'}</button>`}
+        </div>
+      </article>
+      <p class="sub noprint" style="font-size:12.5px;margin-top:10px">מקלדת: 1–4 לבחירת תשובה, חיצים למעבר בין שאלות.</p>
+    </div>
+    <aside class="sheet" aria-label="דף קידוד">
+      <h3>דף קידוד <span class="mono" style="color:var(--muted);font-weight:400">${answered}/${E.items.length}</span></h3>
+      ${E.items.map((x,i) => `<div class="srow ${i===E.cur?'cur':''}"><button class="sn" data-go="${i}">${i+1}</button>${[0,1,2,3].map(j => {
+          let cls = x.ans===j ? 'on' : '';
+          if (practice && x.ans!==null){ if (x.order[j]===0) cls='ok'; else if (x.ans===j) cls='bad'; }
+          return j < x.order.length ? `<button class="sb ${cls}" data-q="${i}" data-j="${j}" aria-label="שאלה ${i+1} תשובה ${LET[j]}" ${practice && x.ans!==null ? 'disabled':''}>${LET[j]}</button>` : '<span></span>'; }).join('')}<span class="flag">${x.flag?'⚑':''}</span></div>`).join('')}
+      <div class="legend"><span>לחיצה על מספר – מעבר לשאלה · ⚑ = מסומנת לחזרה</span></div>
+    </aside>
+  </div>`;
+  const choose = (i, j) => { const x = E.items[i]; if (practice && x.ans !== null) return; x.ans = (!practice && x.ans === j) ? null : j; renderExam(app); };
+  app.querySelectorAll('.opts .opt').forEach(b => b.onclick = () => choose(E.cur, +b.dataset.j));
+  app.querySelectorAll('.sb').forEach(b => b.onclick = () => { E.cur = +b.dataset.q; choose(+b.dataset.q, +b.dataset.j); });
+  app.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { E.cur = +b.dataset.go; renderExam(app); });
+  $('#prev').onclick = () => { E.cur--; renderExam(app); };
+  if ($('#next')) $('#next').onclick = () => { E.cur++; renderExam(app); };
+  $('#flag').onclick = () => { it.flag = !it.flag; renderExam(app); };
+  $('#submit').onclick = () => submit(false);
+  if ($('#submit2')) $('#submit2').onclick = () => submit(false);
+}
+document.addEventListener('keydown', e => {
+  if (S.tab !== 'exam' || !S.exam || S.exam.done || $('.modal')) return;
+  if (e.target.matches('input,select,textarea')) return;
+  const E = S.exam;
+  if (e.key === 'ArrowLeft' && E.cur < E.items.length-1){ E.cur++; render(); }
+  else if (e.key === 'ArrowRight' && E.cur > 0){ E.cur--; render(); }
+  else if (/^[1-4]$/.test(e.key)){ const b = document.querySelector(`.opts .opt[data-j="${+e.key-1}"]`); if (b && !b.disabled) b.click(); }
+});
+function submit(timeUp){
+  const E = S.exam;
+  const un = E.items.filter(x => x.ans === null).length;
+  const fl = E.items.filter(x => x.flag).length;
+  if (!timeUp && E.mode === 'digital' && (un || fl)){
+    confirmModal(`${un ? `נשארו ${un} שאלות בלי תשובה.` : ''} ${fl ? `${fl} שאלות מסומנות לחזרה.` : ''} להגיש בכל זאת?`, 'הגש מבחן', finish);
+    return;
+  }
+  finish(timeUp);
+}
+function finish(timeUp){
+  const E = S.exam; E.done = true; clearInterval(timerId);
+  const secs = Math.round((Date.now()-E.start)/1000);
+  const answers = E.items.map(x => ({id: x.q.id, topic: x.q.topic, ok: x.ans !== null && x.order[x.ans] === 0, skipped: x.ans === null}));
+  const counted = E.mode === 'practice' ? answers.filter(a => !a.skipped) : answers;
+  const correct = counted.filter(a => a.ok).length;
+  const score = counted.length ? Math.round(correct / counted.length * 100) : 0;
+  S.result = {exam: E, secs, correct, total: counted.length, score, timeUp};
+  if (counted.length){
+    const hist = store.get('history', []);
+    hist.push({t: Date.now(), mode: E.mode, seed: E.seed, n: counted.length, correct, score, secs, answers: counted});
+    store.set('history', hist.slice(-200));
+  }
+  go('result');
+}
+
+/* ---------- results ---------- */
+let reviewFilter = 'all';
+function renderResult(app){
+  const R = S.result; if (!R){ go('setup'); return; }
+  const E = R.exam, f = s => `${Math.floor(s/60)} דק׳ ${s%60} שנ׳`;
+  const byTopic = {};
+  for (const x of E.items){ if (E.mode==='practice' && x.ans===null) continue; const t = byTopic[x.q.topic] ||= {n:0, ok:0}; t.n++; if (x.ans!==null && x.order[x.ans]===0) t.ok++; }
+  const wrongIds = E.items.filter(x => x.ans === null || x.order[x.ans] !== 0).map(x => x.q.id);
+  const items = E.items.map((x,i) => ({x,i})).filter(({x}) => reviewFilter==='all' || (reviewFilter==='wrong' ? (x.ans!==null && x.order[x.ans]!==0) : x.ans===null));
+  app.innerHTML = `
+  <div class="stack">
+    <div class="panel result-head">
+      <div class="score mono" style="color:${R.score>=60?'var(--good)':'var(--bad)'}">${R.score}</div>
+      <div class="stack" style="gap:6px">
+        <h2>${R.timeUp ? 'הזמן נגמר – המבחן הוגש אוטומטית' : (E.mode==='practice' ? 'סיכום תרגול' : 'הציון שלך')}</h2>
+        <div class="sub">${R.correct} תשובות נכונות מתוך ${R.total}${E.mode==='practice' && R.total < E.items.length ? ` (מתוך ${E.items.length} שאלות, נספרו רק אלה שנענו)` : ''} · ${f(R.secs)} · קוד מבחן <span class="mono">${E.seed}</span></div>
+        <div class="row" style="margin-top:6px">
+          ${wrongIds.length ? `<button class="btn primary" id="retry">מבחן חוזר על ${wrongIds.length} השאלות שפספסתי</button>` : ''}
+          <button class="btn" id="again">מבחן חדש</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel stack">
+      <h3>לפי נושא</h3>
+      <div class="bars">${Object.entries(byTopic).sort((a,b)=>a[1].ok/a[1].n-b[1].ok/b[1].n).map(([t,v]) => barRow(t, v.ok/v.n, `${v.ok}/${v.n}`, `${t}: ${v.ok} נכונות מתוך ${v.n} (${Math.round(v.ok/v.n*100)}%)`)).join('')}</div>
+    </div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><h3>סקירת תשובות</h3>
+        <div class="row" style="gap:6px">${[['all','הכל'],['wrong','רק טעויות'],['skip','לא נענו']].map(([k,l])=>`<button class="chip" data-f="${k}" aria-pressed="${reviewFilter===k}">${l}</button>`).join('')}</div></div>
+      ${items.length ? items.map(({x,i}) => reviewItem(x, i)).join('') : '<div class="empty">אין שאלות בסינון הזה.</div>'}
+    </div>
+  </div>`;
+  if ($('#retry')) $('#retry').onclick = () => { S.cfg.seed=''; start(wrongIds); };
+  $('#again').onclick = () => { S.exam = null; go('setup'); };
+  app.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { reviewFilter = b.dataset.f; renderResult(app); });
+  bindTips(app);
+}
+function reviewItem(x, i){
+  const q = x.q, ok = x.ans!==null && x.order[x.ans]===0;
+  return `<div class="review-item">
+    <div class="qhead"><span class="qnum">שאלה ${i+1}</span><span class="row" style="gap:6px"><span class="tag">${esc(q.topic)}</span>
+      <b style="font-size:13px;color:${x.ans===null?'var(--warn)':ok?'var(--good)':'var(--bad)'}">${x.ans===null?'– לא נענתה':ok?'✓ נכון':'✗ לא נכון'}</b></span></div>
+    <div class="stem">${rich(q.stem)}</div>
+    <div class="opts">${x.order.map((oi,j) => {
+      const cls = oi===0 ? 'ok' : (j===x.ans ? 'bad' : '');
+      const mark = oi===0 ? '<span class="mark okm">✓ נכונה</span>' : (j===x.ans ? '<span class="mark badm">✗ הבחירה שלך</span>' : '');
+      return `<div class="opt ${cls}"><span class="bub">${LET[j]}</span><span class="t">${rich(q.options[oi])}</span>${mark}</div>`; }).join('')}</div>
+    <div class="meta-line">מקור: ${esc(srcLabel(q))}${q.note ? ' · ' + esc(q.note) : ''} · <span class="mono">${q.id}</span></div>
+  </div>`;
+}
+
+/* ---------- print ---------- */
+function renderPrint(app){
+  const P = S.print; if (!P){ go('setup'); return; }
+  const V = P.versions;
+  app.innerHTML = `
+  <div class="row noprint" style="justify-content:space-between;margin-bottom:16px">
+    <div><h2>${V.length} גרסאות מבחן</h2><p class="sub">קוד <span class="mono">${P.seed}</span> · ${V[0].length} שאלות בכל גרסה · המפתח בסוף העמוד</p></div>
+    <div class="row">${PRINT_ENABLED ? '<button class="btn primary" id="doprint">הדפס / שמור כ-PDF</button>' : '<span class="sub" style="font-size:13px">להדפסה: פתח את app.html מהתיקייה במחשב</span>'}<button class="btn" id="back">חזרה</button></div>
+  </div>
+  <div class="printdoc">
+    ${V.map((items, v) => `<section class="ver">
+      <div style="border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px"><h2>מבוא לאבטחת סייבר – מבחן תרגול</h2>
+        <div class="sub">גרסה ${v+1} מתוך ${V.length} · ${items.length} שאלות · יש לבחור את התשובה הנכונה ביותר</div>
+        <div class="row" style="gap:40px;margin-top:10px;font-size:14px"><span>שם: ________________</span><span>ת.ז: ________________</span></div></div>
+      ${items.map((x,i) => `<div class="pq"><b>שאלה ${i+1}</b><div class="stem" style="font-size:15px">${rich(x.q.stem)}</div>
+        <ol>${x.order.map((oi,j)=>`<li><b>${LET[j]}.</b><span class="t" style="flex:1;min-width:0">${rich(x.q.options[oi])}</span></li>`).join('')}</ol></div>`).join('')}
+    </section>`).join('')}
+    <section class="ver"><h2>מפתח תשובות</h2>
+      <div class="tbl"><table class="keytbl"><tr><th>שאלה</th>${V.map((_,v)=>`<th>גרסה ${v+1}</th>`).join('')}</tr>
+      ${V[0].map((_,i)=>`<tr><td>${i+1}</td>${V.map(items => `<td>${items[i] ? `<b>${LET[items[i].order.indexOf(0)]}</b> <span style="color:var(--faint);font-size:11px">${items[i].q.id}</span>` : ''}</td>`).join('')}</tr>`).join('')}
+      </table></div></section>
+  </div>`;
+  if ($('#doprint')) $('#doprint').onclick = () => window.print();
+  $('#back').onclick = () => go('setup');
+}
+
+/* ---------- history ---------- */
+function historyMini(){
+  const h = store.get('history', []); if (!h.length) return '';
+  const last = h.slice(-5).reverse();
+  return `<div class="panel stack" style="gap:8px"><div class="eyebrow">מבחנים אחרונים</div>
+    ${last.map(x => `<div class="row" style="justify-content:space-between;font-size:13.5px"><span>${new Date(x.t).toLocaleDateString('he-IL')} · ${x.mode==='practice'?'תרגול':'מבחן'} · ${x.n} שאלות</span><b class="mono" style="color:${x.score>=60?'var(--good)':'var(--bad)'}">${x.score}</b></div>`).join('')}
+    <button class="btn ghost" id="clearhist" style="justify-self:start;padding:2px 0;font-size:12.5px">מחק היסטוריה</button></div>`;
+}
+function bindHistoryMini(app){ const b = $('#clearhist', app); if (b) b.onclick = () => confirmModal('למחוק את כל היסטוריית המבחנים בדפדפן הזה?', 'מחק', () => { store.set('history', []); render(); }); }
+
+/* ---------- bank browser ---------- */
+function renderBank(app){
+  const B = S.bank;
+  const words = B.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const list = QS.filter(q => (!B.topic || q.topic===B.topic) && (!B.year || yearsOf(q).includes(B.year)) &&
+    words.every(w => (q.stem + ' ' + q.options.join(' ') + ' ' + q.id).toLowerCase().includes(w)));
+  app.innerHTML = `
+  <div class="stack">
+    <div><h2>מאגר השאלות</h2><p class="sub">${QS.length} שאלות ייחודיות. התשובה הנכונה מסומנת כשמפעילים "הצג תשובות".</p></div>
+    <div class="row panel" style="padding:12px">
+      <input type="search" id="b-q" placeholder="חיפוש (למשל: ARP, salt, דיפי)" value="${esc(B.q)}" style="flex:1;min-width:180px">
+      <select id="b-t"><option value="">כל הנושאים</option>${TOPICS.map(t=>`<option ${B.topic===t?'selected':''}>${esc(t)}</option>`).join('')}</select>
+      <select id="b-y"><option value="">כל השנים</option>${YEARS.map(y=>`<option ${B.year===y?'selected':''}>${y}</option>`).join('')}</select>
+      <label class="check"><input type="checkbox" id="b-s" ${B.show?'checked':''}>הצג תשובות</label>
+      <span class="sub mono" style="margin:0">${list.length}</span>
+    </div>
+    <div class="list">${list.slice(0, 60).map(q => `<div class="bankq">
+      <div class="qhead"><span class="row" style="gap:8px"><b class="mono">${q.id}</b><span class="tag">${esc(q.topic)}</span>${q.exam_count>1?`<span class="tag" style="color:var(--accent)">חזרה ב-${q.exam_count} מבחנים</span>`:''}${q.variant_group?`<span class="tag">וריאציה ${q.variant_group}</span>`:''}</span>
+        <span class="sub" style="font-size:12.5px;margin:0">${esc(q.sources.map(s=>s.date||'לדוגמא').filter((v,i,a)=>a.indexOf(v)===i).join(' · '))}</span></div>
+      <div class="stem" style="font-size:15px">${rich(q.stem)}</div>
+      <div class="opts">${q.options.map((o,i)=>`<div class="opt ${B.show&&i===0?'ok':''}"><span class="bub">${LET[i]}</span><span class="t">${rich(o)}</span></div>`).join('')}</div>
+      ${q.note?`<div class="meta-line">${esc(q.note)}</div>`:''}
+    </div>`).join('')}
+    ${list.length>60?`<div class="empty">מוצגות 60 הראשונות מתוך ${list.length}. צמצם בחיפוש או בסינון.</div>`:''}
+    ${!list.length?'<div class="empty">לא נמצאו שאלות.</div>':''}</div>
+  </div>`;
+  const q = $('#b-q');
+  q.oninput = () => { B.q = q.value; const pos = q.selectionStart; renderBank(app); const n = $('#b-q'); n.focus(); n.setSelectionRange(pos,pos); };
+  $('#b-t').onchange = e => { B.topic = e.target.value; renderBank(app); };
+  $('#b-y').onchange = e => { B.year = e.target.value; renderBank(app); };
+  $('#b-s').onchange = e => { B.show = e.target.checked; renderBank(app); };
+}
+
+/* ---------- stats ---------- */
+function countExams(){ return new Set(QS.flatMap(q => q.sources.map(s => s.date).filter(Boolean))).size; }
+function barRow(label, frac, val, tip){
+  return `<div class="bar" data-tip="${esc(tip)}"><span class="lbl">${esc(label)}</span><span class="track"><span class="fill" style="width:${Math.max(0,Math.min(1,frac))*100}%"></span></span><span class="val">${val}</span></div>`;
+}
+const RAMP = ['#cde2fb','#b7d3f6','#9ec5f4','#86b6ef','#6da7ec','#5598e7','#3987e5','#2a78d6','#256abf','#1c5cab','#184f95','#104281'];
+function renderStats(app){
+  const exams = countExams();
+  const occ = QS.reduce((s,q)=>s+q.sources.length,0);
+  const exact = QS.filter(q => q.exam_count > 1);
+  const groups = {}; QS.forEach(q => { if (q.variant_group) (groups[q.variant_group] ||= []).push(q); });
+  const vg = Object.values(groups);
+  const stm = BANK.meta.repeated_statements || [];
+  const sample = QS.filter(q => q.in_sample_exam).length;
+  const recurring = new Set([...exact.map(q=>q.id), ...vg.flat().map(q=>q.id)]);
+  const tcount = TOPICS.map(t => [t, QS.filter(q=>q.topic===t).length]).sort((a,b)=>b[1]-a[1]);
+  const maxT = Math.max(...tcount.map(x=>x[1]));
+  // topic × year: share of each year's questions
+  const perYear = {}; YEARS.forEach(y => perYear[y] = QS.filter(q => yearsOf(q).includes(y)));
+  let maxShare = 0; const cell = {};
+  for (const t of TOPICS) for (const y of YEARS){ const n = perYear[y].filter(q=>q.topic===t).length; const s = perYear[y].length ? n/perYear[y].length : 0; cell[t+'|'+y] = {n, s}; maxShare = Math.max(maxShare, s); }
+  const hist = store.get('history', []);
+  const mine = {}; hist.forEach(h => h.answers.forEach(a => { const m = mine[a.topic] ||= {n:0, ok:0}; m.n++; if (a.ok) m.ok++; }));
+  app.innerHTML = `
+  <div class="stack">
+    <div><h2>סטטיסטיקה של המאגר</h2><p class="sub">מה חוזר, ואיך השאלות מתחלקות לנושאים.</p></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v mono">${QS.length}</div><div class="k">שאלות ייחודיות</div></div>
+      <div class="kpi"><div class="v mono">${exams}</div><div class="k">מבחנים (מועדים) שנסרקו</div></div>
+      <div class="kpi"><div class="v mono">${occ}</div><div class="k">הופעות בכל הקבצים, כולל עותקים</div></div>
+      <div class="kpi"><div class="v mono">${exact.length}</div><div class="k">שאלות שחזרו כמו שהן במועד אחר</div></div>
+      <div class="kpi"><div class="v mono">${vg.length}</div><div class="k">קבוצות וריאציות (${vg.flat().length} שאלות)</div></div>
+      <div class="kpi"><div class="v mono">${stm.length}</div><div class="k">טענות שחוזרות בשאלות שונות</div></div>
+    </div>
+    <p class="sub" style="margin:0">בסך הכל ${recurring.size} שאלות (${Math.round(recurring.size/QS.length*100)}%) חוזרות כמו שהן או כווריאציה. ${sample} שאלות מהמבחנים לדוגמא לקוחות ממבחנים אמיתיים.</p>
+
+    <div class="grid2">
+      <div class="panel stack">
+        <div><h3>חלוקה לנושאים</h3><p class="sub" style="font-size:13px">מספר שאלות בכל אשכול</p></div>
+        <div class="bars">${tcount.map(([t,n]) => barRow(t, n/maxT, `${n} · ${Math.round(n/QS.length*100)}%`, `${t}: ${n} שאלות (${Math.round(n/QS.length*100)}% מהמאגר)`)).join('')}</div>
+      </div>
+      <div class="panel stack">
+        <div><h3>${Object.keys(mine).length ? 'הביצועים שלי לפי נושא' : 'הביצועים שלי'}</h3><p class="sub" style="font-size:13px">${hist.length ? `אחוז הצלחה מתוך ${hist.length} מבחנים/תרגולים בדפדפן הזה` : 'יופיע כאן אחרי המבחן הדיגיטלי או התרגול הראשון.'}</p></div>
+        ${Object.keys(mine).length ? `<div class="bars">${Object.entries(mine).sort((a,b)=>a[1].ok/a[1].n-b[1].ok/b[1].n).map(([t,m]) => barRow(t, m.ok/m.n, `${Math.round(m.ok/m.n*100)}%`, `${t}: ${m.ok} נכונות מתוך ${m.n}`)).join('')}</div>` : '<div class="empty" style="padding:20px">אין עדיין נתונים</div>'}
+      </div>
+    </div>
+
+    <div class="panel stack">
+      <div><h3>נושאים לאורך השנים</h3><p class="sub" style="font-size:13px">אחוז מהשאלות של כל שנה שעוסקות בנושא. כהה יותר = משקל גדול יותר באותה שנה.</p></div>
+      <div class="tbl"><table class="heat"><tr><th></th>${YEARS.map(y=>`<th>${y}<div style="font-weight:400;font-size:11px">${perYear[y].length} ש׳</div></th>`).join('')}</tr>
+        ${TOPICS.map(t => `<tr><th class="rowh">${esc(t)}</th>${YEARS.map(y => { const c = cell[t+'|'+y]; const k = maxShare ? Math.round(c.s/maxShare*(RAMP.length-1)) : 0;
+          return `<td data-tip="${esc(`${t} · ${y}: ${c.n} שאלות (${Math.round(c.s*100)}%)`)}" style="background:${c.n?RAMP[k]:'var(--surface-2)'};color:${c.n ? (k>=6?'#fff':'#0b1a33') : 'var(--faint)'}">${c.n?Math.round(c.s*100)+'%':'–'}</td>`; }).join('')}</tr>`).join('')}
+      </table></div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel stack">
+        <h3>שאלות שחזרו במועדים שונים</h3>
+        <div class="list">${exact.map(q => `<div class="li"><div>${esc(firstLine(q))}</div><div class="m">${q.id} · ${esc(q.topic)} · ${[...new Set(q.sources.map(s=>s.date).filter(Boolean))].join(' · ')}</div></div>`).join('')}</div>
+      </div>
+      <div class="panel stack">
+        <h3>וריאציות: אותה שאלה, תשובות אחרות</h3>
+        <div class="list">${vg.map(g => `<details class="li"><summary>${esc(firstLine(g[0]))} <span class="m">(${g.length})</span></summary>
+          ${g.map(q => `<div class="m" style="margin-top:6px">${q.id} · ${[...new Set(q.sources.map(s=>s.date).filter(Boolean))].join(' · ')} · נכונה: ${esc(strip(q.options[0]).slice(0,80))}</div>`).join('')}</details>`).join('')}</div>
+      </div>
+    </div>
+
+    <div class="panel stack">
+      <div><h3>טענות שחוזרות</h3><p class="sub" style="font-size:13px">אותה טענה (אחת מהתשובות) הופיעה בשאלות שונות ובמועדים שונים. כדאי להכיר אותן היטב.</p></div>
+      <div class="list">${stm.slice(0, 25).map(s => `<div class="li"><div>${rich(s.text)}</div><div class="m">${s.exams} מועדים · ${s.dates.join(' · ')} · ${s.questions.join(', ')}</div></div>`).join('')}</div>
+      ${stm.length>25?`<details><summary>עוד ${stm.length-25} טענות</summary><div class="list" style="margin-top:10px">${stm.slice(25).map(s => `<div class="li"><div>${rich(s.text)}</div><div class="m">${s.exams} מועדים · ${s.dates.join(' · ')}</div></div>`).join('')}</div></details>`:''}
+    </div>
+
+    <div class="panel stack">
+      <div><h3>איך חולקו הנושאים</h3>
+      <p class="sub" style="font-size:13px">כל שאלה (גוף + תשובות) הומרה לווקטור TF-IDF של מילות התוכן, ואז רץ K-Means עם 9 מרכזים שעוגנו במילות מפתח של נושאי הקורס. המרכזים זזים לפי הנתונים עצמם, וכל שאלה משויכת לאשכול הקרוב ביותר (דמיון קוסינוס). ${QS.filter(q=>q.topic_manual).length} שאלות שהשתייכו לכמה נושאים שויכו ידנית. אלה המילים החזקות בכל אשכול:</p></div>
+      <div class="grid2">${TOPICS.map(t => `<div><b style="font-size:14px">${esc(t)}</b> <span class="sub mono" style="font-size:12px">${BANK.meta.topics[t].count}</span><div class="terms">${BANK.meta.topics[t].top_terms.map(w=>`<span>${esc(w)}</span>`).join('')}</div></div>`).join('')}</div>
+    </div>
+  </div>`;
+  bindTips(app);
+}
+const strip = s => s.replace(/<[^>]+>/g,'').replace(/```/g,'');
+function firstLine(q){ const s = strip(q.stem).replace(/\s+/g,' ').trim(); return s.length > 45 ? s.slice(0,120) + (s.length>120?'…':'') : (s + ' ' + strip(q.options[0])).slice(0,120); }
+
+/* ---------- shared UI ---------- */
+function bindTips(root){
+  const tip = $('#tip');
+  root.querySelectorAll('[data-tip]').forEach(el => {
+    el.onmousemove = e => { tip.textContent = el.dataset.tip; tip.hidden = false; tip.style.left = Math.min(e.clientX + 12, innerWidth - 270) + 'px'; tip.style.top = (e.clientY + 14) + 'px'; };
+    el.onmouseleave = () => tip.hidden = true;
+  });
+}
+function confirmModal(msg, okText, onOk){
+  const m = document.createElement('div'); m.className = 'modal';
+  m.innerHTML = `<div class="panel" role="dialog" aria-modal="true"><div>${esc(msg)}</div><div class="row" style="justify-content:flex-end"><button class="btn" data-x>ביטול</button><button class="btn primary" data-ok>${esc(okText)}</button></div></div>`;
+  document.body.appendChild(m);
+  m.querySelector('[data-x]').onclick = () => m.remove();
+  m.querySelector('[data-ok]').onclick = () => { m.remove(); onOk(); };
+  m.onclick = e => { if (e.target === m) m.remove(); };
+  m.querySelector('[data-ok]').focus();
+}
+
+render();
+</script>
