@@ -475,24 +475,24 @@
     ],
     "topics": {
       "הצפנה סימטרית וצפנים קלאסיים": {
-        "count": 13,
+        "count": 15,
         "top_terms": [
           "des",
-          "החלפה",
           "plaintext",
-          "צופן",
-          "xor",
           "ecb",
+          "החלפה",
+          "aes",
           "צפנים",
-          "ciphertext"
+          "xor",
+          "mode"
         ]
       },
       "RSA, מפתח ציבורי וחתימות": {
         "count": 15,
         "top_terms": [
           "textbook",
-          "דיגיטלית",
           "private",
+          "דיגיטלית",
           "gen",
           "ϕ",
           "rsa",
@@ -501,55 +501,55 @@
         ]
       },
       "דיפי-הלמן והחלפת מפתחות": {
-        "count": 9,
+        "count": 10,
         "top_terms": [
           "g",
+          "המשותף",
           "החלפת",
           "מודולו",
-          "המשותף",
-          "diffie",
           "hellman",
+          "diffie",
           "דיפי",
           "הלמן"
         ]
       },
       "Hash, MAC וסיסמאות": {
-        "count": 20,
+        "count": 23,
         "top_terms": [
           "message",
           "tag",
           "encrypt",
-          "authentication",
           "codes",
-          "salt",
-          "resistance",
+          "authentication",
+          "authenticity",
+          "סיסמא",
           "then"
         ]
       },
       "PKI, תעודות, CT ו-OCSP": {
-        "count": 25,
+        "count": 26,
         "top_terms": [
           "ct",
           "לוגרים",
-          "sct",
           "ocsp",
-          "store",
+          "sct",
           "תעודות",
+          "store",
           "revocation",
-          "root"
+          "ca"
         ]
       },
       "TLS / HTTPS": {
         "count": 13,
         "top_terms": [
-          "secret",
           "master",
+          "secret",
           "handshake",
           "session",
-          "cipher",
           "transport",
           "finish",
-          "clienthello"
+          "clienthello",
+          "strict"
         ]
       },
       "אבטחת Web": {
@@ -557,16 +557,16 @@
         "top_terms": [
           "injection",
           "sql",
-          "xss",
           "inputusername",
           "inputpassword",
           "httponly",
+          "xss",
           "dom",
           "cross"
         ]
       },
       "רשתות: ARP, DNS, DoS ו-Firewall": {
-        "count": 22,
+        "count": 23,
         "top_terms": [
           "poisoning",
           "arp",
@@ -574,21 +574,21 @@
           "dns",
           "dos",
           "הרעלת",
-          "חומת",
-          "port"
+          "port",
+          "חומת"
         ]
       },
       "ביטקוין ובלוקצ׳יין": {
-        "count": 20,
+        "count": 22,
         "top_terms": [
           "ביטקוין",
-          "nonce",
-          "מרקל",
-          "fork",
           "עסקה",
-          "miner",
+          "fork",
+          "nonce",
           "equalverify",
-          "checksig"
+          "מרקל",
+          "checksig",
+          "output"
         ]
       }
     }
@@ -621,7 +621,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.193,
+      "topic_score": 0.185,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -653,7 +653,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.239,
+      "topic_score": 0.236,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -685,7 +685,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.198,
+      "topic_score": 0.197,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -717,7 +717,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.264,
+      "topic_score": 0.263,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V01"
@@ -749,7 +749,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.357,
+      "topic_score": 0.359,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -813,7 +813,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.277,
+      "topic_score": 0.278,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -909,7 +909,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.319,
+      "topic_score": 0.316,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V03"
@@ -941,7 +941,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.25,
+      "topic_score": 0.242,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -1044,7 +1044,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.138,
+      "topic_score": 0.129,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1118,7 +1118,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.387,
+      "topic_score": 0.384,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1155,7 +1155,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.235,
+      "topic_score": 0.236,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1192,7 +1192,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.279,
+      "topic_score": 0.271,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1229,7 +1229,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.382,
+      "topic_score": 0.383,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1266,7 +1266,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.249,
+      "topic_score": 0.248,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": "V04"
@@ -1374,7 +1374,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.297,
+      "topic_score": 0.294,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": "V05"
@@ -1411,7 +1411,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.277,
+      "topic_score": 0.274,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1448,7 +1448,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.288,
+      "topic_score": 0.271,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": "V06"
@@ -1485,7 +1485,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.328,
+      "topic_score": 0.329,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1522,7 +1522,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.312,
+      "topic_score": 0.306,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1559,7 +1559,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.295,
+      "topic_score": 0.292,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1596,7 +1596,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.37,
+      "topic_score": 0.353,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1633,7 +1633,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.318,
+      "topic_score": 0.321,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1670,7 +1670,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.334,
+      "topic_score": 0.329,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1707,7 +1707,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.296,
+      "topic_score": 0.288,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1744,7 +1744,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.383,
+      "topic_score": 0.385,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": null
@@ -1781,7 +1781,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.245,
+      "topic_score": 0.244,
       "exam_count": 1,
       "in_sample_exam": true,
       "variant_group": "V04"
@@ -1813,7 +1813,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.303,
+      "topic_score": 0.301,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -1845,7 +1845,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.393,
+      "topic_score": 0.411,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -1877,7 +1877,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.329,
+      "topic_score": 0.326,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -1911,7 +1911,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.096,
+      "topic_score": 0.094,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V07"
@@ -1943,7 +1943,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.278,
+      "topic_score": 0.26,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -1975,7 +1975,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.222,
+      "topic_score": 0.221,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2007,7 +2007,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.373,
+      "topic_score": 0.371,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2039,7 +2039,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.259,
+      "topic_score": 0.254,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2071,7 +2071,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.465,
+      "topic_score": 0.452,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2103,7 +2103,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.275,
+      "topic_score": 0.271,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2135,7 +2135,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.222,
+      "topic_score": 0.219,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2167,7 +2167,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.263,
+      "topic_score": 0.25,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2199,7 +2199,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.324,
+      "topic_score": 0.309,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V08"
@@ -2231,7 +2231,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.257,
+      "topic_score": 0.232,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2263,7 +2263,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.292,
+      "topic_score": 0.285,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2300,7 +2300,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.296,
+      "topic_score": 0.281,
       "exam_count": 2,
       "in_sample_exam": false,
       "variant_group": null
@@ -2332,7 +2332,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.176,
+      "topic_score": 0.173,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2364,7 +2364,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.169,
+      "topic_score": 0.163,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2396,7 +2396,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.214,
+      "topic_score": 0.202,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2428,7 +2428,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.252,
+      "topic_score": 0.249,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2462,7 +2462,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.308,
+      "topic_score": 0.293,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2499,7 +2499,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.264,
+      "topic_score": 0.249,
       "exam_count": 2,
       "in_sample_exam": false,
       "variant_group": "V06"
@@ -2526,7 +2526,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.318,
+      "topic_score": 0.308,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2553,7 +2553,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.362,
+      "topic_score": 0.365,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2580,7 +2580,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.221,
+      "topic_score": 0.213,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2607,7 +2607,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.275,
+      "topic_score": 0.276,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2634,7 +2634,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.284,
+      "topic_score": 0.283,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2666,7 +2666,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.269,
+      "topic_score": 0.264,
       "exam_count": 2,
       "in_sample_exam": false,
       "variant_group": null
@@ -2725,7 +2725,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.461,
+      "topic_score": 0.46,
       "exam_count": 2,
       "in_sample_exam": false,
       "variant_group": null
@@ -2752,7 +2752,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.303,
+      "topic_score": 0.298,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2779,7 +2779,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.309,
+      "topic_score": 0.312,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2806,7 +2806,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.281,
+      "topic_score": 0.263,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2833,7 +2833,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.459,
+      "topic_score": 0.491,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2860,7 +2860,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.312,
+      "topic_score": 0.3,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2914,7 +2914,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.359,
+      "topic_score": 0.348,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2941,7 +2941,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.262,
+      "topic_score": 0.259,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -2968,7 +2968,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.408,
+      "topic_score": 0.405,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V09"
@@ -3022,7 +3022,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.2,
+      "topic_score": 0.198,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3049,7 +3049,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.246,
+      "topic_score": 0.243,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3076,7 +3076,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.354,
+      "topic_score": 0.351,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V10"
@@ -3103,7 +3103,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.25,
+      "topic_score": 0.229,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3130,7 +3130,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.313,
+      "topic_score": 0.311,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3184,7 +3184,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.288,
+      "topic_score": 0.275,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3211,7 +3211,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.301,
+      "topic_score": 0.282,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3238,7 +3238,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.281,
+      "topic_score": 0.279,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3265,7 +3265,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.388,
+      "topic_score": 0.386,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3292,7 +3292,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.226,
+      "topic_score": 0.217,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3346,7 +3346,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.368,
+      "topic_score": 0.365,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3373,7 +3373,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.191,
+      "topic_score": 0.189,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3400,7 +3400,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.191,
+      "topic_score": 0.184,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3427,7 +3427,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.31,
+      "topic_score": 0.308,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V05"
@@ -3454,7 +3454,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.245,
+      "topic_score": 0.243,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V01"
@@ -3508,7 +3508,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.393,
+      "topic_score": 0.389,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V09"
@@ -3535,7 +3535,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.327,
+      "topic_score": 0.309,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V08"
@@ -3562,7 +3562,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.26,
+      "topic_score": 0.261,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3589,7 +3589,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.368,
+      "topic_score": 0.365,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3616,7 +3616,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.292,
+      "topic_score": 0.291,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3643,7 +3643,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.441,
+      "topic_score": 0.444,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3670,7 +3670,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.326,
+      "topic_score": 0.343,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3697,7 +3697,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.349,
+      "topic_score": 0.348,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3724,7 +3724,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.232,
+      "topic_score": 0.234,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3751,7 +3751,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.175,
+      "topic_score": 0.176,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3788,7 +3788,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.295,
+      "topic_score": 0.288,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3825,7 +3825,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.395,
+      "topic_score": 0.396,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3862,7 +3862,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.501,
+      "topic_score": 0.499,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3899,7 +3899,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.269,
+      "topic_score": 0.258,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3936,7 +3936,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.312,
+      "topic_score": 0.309,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -3973,7 +3973,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.285,
+      "topic_score": 0.287,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4010,7 +4010,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.199,
+      "topic_score": 0.196,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4047,7 +4047,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.217,
+      "topic_score": 0.211,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4084,7 +4084,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.249,
+      "topic_score": 0.247,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4121,7 +4121,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.215,
+      "topic_score": 0.212,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4153,7 +4153,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.497,
+      "topic_score": 0.495,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4185,7 +4185,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.253,
+      "topic_score": 0.251,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4249,7 +4249,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.35,
+      "topic_score": 0.354,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4313,7 +4313,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.22,
+      "topic_score": 0.219,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4345,7 +4345,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.258,
+      "topic_score": 0.253,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4377,7 +4377,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.173,
+      "topic_score": 0.159,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4409,7 +4409,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.312,
+      "topic_score": 0.309,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V03"
@@ -4441,7 +4441,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.211,
+      "topic_score": 0.213,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4468,7 +4468,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.317,
+      "topic_score": 0.311,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4495,7 +4495,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.387,
+      "topic_score": 0.391,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4522,7 +4522,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.344,
+      "topic_score": 0.34,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4549,7 +4549,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.249,
+      "topic_score": 0.25,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4576,7 +4576,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.242,
+      "topic_score": 0.228,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4630,7 +4630,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.407,
+      "topic_score": 0.412,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V10"
@@ -4657,7 +4657,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.331,
+      "topic_score": 0.306,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V11"
@@ -4684,7 +4684,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.151,
+      "topic_score": 0.141,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V07"
@@ -4711,7 +4711,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.252,
+      "topic_score": 0.237,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4738,10 +4738,10 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.353,
+      "topic_score": 0.388,
       "exam_count": 1,
       "in_sample_exam": false,
-      "variant_group": null
+      "variant_group": "V12"
     },
     {
       "id": "Q134",
@@ -4765,7 +4765,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.315,
+      "topic_score": 0.31,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4792,10 +4792,10 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.322,
+      "topic_score": 0.321,
       "exam_count": 1,
       "in_sample_exam": false,
-      "variant_group": "V12"
+      "variant_group": "V13"
     },
     {
       "id": "Q136",
@@ -4819,7 +4819,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.276,
+      "topic_score": 0.266,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4846,7 +4846,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.341,
+      "topic_score": 0.327,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4873,7 +4873,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.359,
+      "topic_score": 0.361,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4900,10 +4900,10 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.343,
+      "topic_score": 0.339,
       "exam_count": 1,
       "in_sample_exam": false,
-      "variant_group": "V13"
+      "variant_group": "V14"
     },
     {
       "id": "Q140",
@@ -4927,7 +4927,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.336,
+      "topic_score": 0.31,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V11"
@@ -4954,7 +4954,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.272,
+      "topic_score": 0.271,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -4981,7 +4981,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.302,
+      "topic_score": 0.287,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5008,7 +5008,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.327,
+      "topic_score": 0.361,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5035,7 +5035,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.3,
+      "topic_score": 0.299,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5062,10 +5062,10 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.334,
+      "topic_score": 0.333,
       "exam_count": 1,
       "in_sample_exam": false,
-      "variant_group": "V12"
+      "variant_group": "V13"
     },
     {
       "id": "Q146",
@@ -5089,7 +5089,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.177,
+      "topic_score": 0.17,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5116,7 +5116,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.334,
+      "topic_score": 0.319,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5143,7 +5143,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "דיפי-הלמן והחלפת מפתחות",
-      "topic_score": 0.536,
+      "topic_score": 0.558,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5170,7 +5170,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.353,
+      "topic_score": 0.351,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": "V09"
@@ -5197,7 +5197,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "Hash, MAC וסיסמאות",
-      "topic_score": 0.375,
+      "topic_score": 0.352,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5224,7 +5224,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "הצפנה סימטרית וצפנים קלאסיים",
-      "topic_score": 0.246,
+      "topic_score": 0.245,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5251,7 +5251,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.163,
+      "topic_score": 0.151,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5305,7 +5305,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
-      "topic_score": 0.269,
+      "topic_score": 0.275,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5332,7 +5332,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "RSA, מפתח ציבורי וחתימות",
-      "topic_score": 0.323,
+      "topic_score": 0.33,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5359,10 +5359,10 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "PKI, תעודות, CT ו-OCSP",
-      "topic_score": 0.295,
+      "topic_score": 0.293,
       "exam_count": 1,
       "in_sample_exam": false,
-      "variant_group": "V13"
+      "variant_group": "V14"
     },
     {
       "id": "Q157",
@@ -5386,7 +5386,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.216,
+      "topic_score": 0.213,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5413,7 +5413,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "TLS / HTTPS",
-      "topic_score": 0.288,
+      "topic_score": 0.283,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5440,7 +5440,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "ביטקוין ובלוקצ׳יין",
-      "topic_score": 0.238,
+      "topic_score": 0.227,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5494,7 +5494,7 @@
       "fixed_order": false,
       "exclude": false,
       "topic": "אבטחת Web",
-      "topic_score": 0.202,
+      "topic_score": 0.199,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
@@ -5522,6 +5522,278 @@
       "flags": [],
       "fixed_order": false,
       "exclude": false,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q163",
+      "year": "2026",
+      "stem": "להלן פסאודו-קוד המציג פונקציה המטפלת במידע בצורה קריפטוגרפית:\n```\nfunction foo(key_encryption, key_mac, ciphertext, tag):\n    if VerifyMAC(key_mac, ciphertext) != tag:\n        return \"Invalid!\"\n    else:\n        return Decrypt(key_encryption, ciphertext)\n```\nמהי השיטה הנמצאת בשימוש על פי קוד זה?",
+      "options": [
+        "Encrypt then MAC",
+        "MAC then Encrypt",
+        "MAC and Encrypt",
+        "Digital signatures"
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 1
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "Hash, MAC וסיסמאות",
+      "topic_score": 0.348,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": "V12"
+    },
+    {
+      "id": "Q164",
+      "year": "2026",
+      "stem": "עבור n=23 ו g=3, אליס ובוב מבצעים פרוטוקול Diffie-Hellman. אליס שלחה לבוב את המספר 13 ובוב\nשלח לה את 4. מהו המפתח המשותף שיצא להם בסוף התהליך?",
+      "options": [
+        "12",
+        "10",
+        "13",
+        "17"
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 2
+        }
+      ],
+      "flags": [
+        "table?"
+      ],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "דיפי-הלמן והחלפת מפתחות",
+      "topic_score": 0.453,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q165",
+      "year": "2026",
+      "stem": "בביטקוין, מהי מטרתו העיקרית של שימוש במבנה נתונים מסוג 'עץ מרקל' עבור אוסף הטרנזקציות שבתוך הבלוק?",
+      "options": [
+        "לאפשר ללקוחות שלא מחזיקים את כל הבלוקצ׳יין המלא אפשרות לאמת האם טרנזקציה נכללת בבלוק ספציפי.",
+        "למנוע מצב של double spending על ידי תכונת הסודיות שהעץ מבטיח.",
+        "להצפין את הטרנזקציות כך שרק הקלטים והפלטים של הטרנזקציה יוכלו לראות את סכום ההעברה בטרנזקציה.",
+        "עץ מרקל מבטיח שfork יתבצע רק אם רמת הקושי למציאת nonce לא השתנתה במשך 3 בלוקים."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 3
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "ביטקוין ובלוקצ׳יין",
+      "topic_score": 0.257,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q166",
+      "year": "2026",
+      "stem": "עבור הצפנת AES במצב ECB, מה המשפט הנכון:",
+      "options": [
+        "התוקף יכול לגלות חזרות שהופיעו בטקסט המקורי.",
+        "הצפנת בלוק תלויה בהצפנת הבלוק לפניו, ולכן זה מצב בטוח יותר מ-CBC.",
+        "AES הוא Stream Cipher, ולכן הצפנת כל תו שונה מהצפנת התו הקודם.",
+        "אחד מתוצרי הלוואי של הפעולה מאפשר וידוא integrity של ההודעה, ביעד."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 4
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "הצפנה סימטרית וצפנים קלאסיים",
+      "topic_score": 0.247,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q167",
+      "year": "2026",
+      "stem": "בהנחה שקבוצת כורים זדונית מצליחה להשיג 51% מכוח החישוב (Hash Power) הכולל ברשת הביטקוין, אילו מהפעולות הבאות הם אינם יכולים לבצע?",
+      "options": [
+        "אינם יכולים לשחזר את המפתחות הפרטיים של ארנקים.",
+        "אינם יכולים לשנות את היסטוריית הבלוקים האחרונה ולבצע double spending.",
+        "אינם יכולים להתעלם מעסקאות של משתמשים ספציפיים.",
+        "אינם יכולים להתעלם מבלוקים שנכרו על ידי ה 49% האחרים."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 5
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "ביטקוין ובלוקצ׳יין",
+      "topic_score": 0.195,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q168",
+      "year": "2026",
+      "stem": "בצופן בלוקים בשיטת CBC , נניח ומצפינים 10 בלוקים, ונתון שביט אחד בבלוק השני השתבש במהלך שידור ה ciphertext. כיצד הדבר ישפיע על הפענוח בצד המקבל?",
+      "options": [
+        "הבלוק השני של הplaintext שהתקבל בפענוח יהיה שונה לחלוטין מהבלוק השני בplaintext המקורי שהוצפן, והבלוק השלישי בplaintext שהתקבל בפענוח יהיה שונה בדיוק בביט אחד לעומת הplaintext המקורי שהוצפן.",
+        "כל הבלוקים החל מהבלוק השני יהרסו לחלוטין.",
+        "הבלוק השלישי של הplaintext שהתקבל בפענוח יהיה שונה לחלוטין מהבלוק השלישי בplaintext המקורי שהוצפן, והבלוק השני בplaintext שהתקבל בפענוח יהיה שונה בדיוק בביט אחד לעומת הplaintext המקורי שהוצפן.",
+        "הבלוק השני של הplaintext שהתקבל בפענוח יהיה שונה לחלוטין מהבלוק השני בplaintext המקורי שהוצפן, אבל הבלוק השלישי בplaintext שהתקבל בפענוח יהיה זהה בדיוק לבלוק השלישי בplaintext המקורי שהוצפן."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 6
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "הצפנה סימטרית וצפנים קלאסיים",
+      "topic_score": 0.223,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q169",
+      "year": "2026",
+      "stem": "נתונה פונקציית Hash המייצרת פלט באורך של 16 ביטים. על פי פרדוקס יום ההולדת, מהו בקירוב מספר הקלטים האקראיים השונים שיש לבדוק כדי למצוא התנגשות (Collision) בהסתברות של כ-%50? יש לבחור את התשובה הקרובה ביותר.",
+      "options": [
+        "307",
+        "32,768",
+        "65,536",
+        "16"
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 7
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "Hash, MAC וסיסמאות",
+      "topic_score": 0.14,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q170",
+      "year": "2026",
+      "stem": "איזו בעיה מרכזית של פרוטוקול OCSP הרגיל נפתרת על ידי שימוש במנגנון OCSP Stapling בחיבורי TLS?",
+      "options": [
+        "פגיעה בפרטיות של המשתמשים.",
+        "הצורך של ה CA לאחסן מספר עצום של תעודות שבוטלו טרם זמנן.",
+        "הצורך של ה CA לאחסן מספר עצום של תעודות שלא בוטלו טרם זמנן.",
+        "הצורך של ה CA להצפין את התעודות לפני שהוא חותם עליהן."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 8
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "PKI, תעודות, CT ו-OCSP",
+      "topic_score": 0.296,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q171",
+      "year": "2026",
+      "stem": "מה מבין הדברים הבאים יוכל לבצע תוקף בעל יכולות MITM, ללא מידע נוסף?",
+      "options": [
+        "יוכל לשנות כתובות IP בתשובות לשאילתות DNS שאינן cached.",
+        "יוכל לשנות דפי HTML שמועברים על גבי חיבור HTTPS שכבר הוקם בין שרת ולקוח.",
+        "יוכל לגנוב את ה coinbase transaction, כלומר, יוכל לשנות את התגמול שאמור לקבל ה miner שמצא את הבלוק כך שהתגמול יוענק לתוקף במקום.",
+        "לזייף חתימה דיגיטלית של אחד מהצדדים."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 9
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "רשתות: ARP, DNS, DoS ו-Firewall",
+      "topic_score": 0.186,
+      "exam_count": 1,
+      "in_sample_exam": false,
+      "variant_group": null
+    },
+    {
+      "id": "Q172",
+      "year": "2026",
+      "stem": "לבנק של אליס יש מנגנון הגנה נגד ניחוש סיסמאות. כל מי שטועה בהקלדת הסיסמה שלו 5 פעמים\nבשעה, ננעל מחוץ לחשבון שלו למשך יום. איזו התקפה יכול לבצע תוקף שיודע את שם המשתמש של אליס?",
+      "options": [
+        "Denial of Service.",
+        "XSS.",
+        "CSRF.",
+        "Brute force."
+      ],
+      "note": "",
+      "sources": [
+        {
+          "file": "2026/File_0_689156_01_09082026_0.pdf",
+          "date": "09/08/2026",
+          "num": 10
+        }
+      ],
+      "flags": [],
+      "fixed_order": false,
+      "exclude": false,
+      "topic": "Hash, MAC וסיסמאות",
+      "topic_score": 0.124,
       "exam_count": 1,
       "in_sample_exam": false,
       "variant_group": null
